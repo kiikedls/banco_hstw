@@ -19,11 +19,11 @@
 
 <body>
 	<!--Navbar-->
-	<nav class="navbar navbar-expand-lg navbar-dark blue-gradient py-3">
+	<nav class="navbar navbar-expand-lg navbar-dark blue-gradient fixed-top scrolling-navbar">
 		<div class="container">
 			<!-- Brand -->
 			<a class="navbar-brand" href="/">
-				<img src="img/tmp_logo.png" height="30" alt="HSTW">
+				<img src="img/tmp_logo.png" height="36" alt="HSTW">
 			</a>
 
 			<!-- Collapse button -->
