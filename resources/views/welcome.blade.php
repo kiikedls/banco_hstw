@@ -19,7 +19,7 @@
 
 <body>
 	<!--Navbar-->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+	<nav class="navbar navbar-expand-lg navbar-dark blue-gradient py-3">
 		<div class="container">
 			<!-- Brand -->
 			<a class="navbar-brand" href="/">
@@ -34,7 +34,7 @@
 			<!-- Collapsible content -->
 			<div class="collapse navbar-collapse" id="RightNav">
 				<!-- Links -->
-				<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="#">Aquí</a>
 					</li>
@@ -43,6 +43,11 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Contenido</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="btn btn-primary nav-link px-3" href="#">Iniciar sesión</a>
 					</li>
 				</ul>
 			</div>
