@@ -19,37 +19,36 @@
 
 <body>
 	<!--Navbar-->
-	<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+		<div class="container">
+			<!-- Brand -->
+			<a class="navbar-brand" href="/">
+				<img src="img/tmp_logo.png" height="30" alt="HSTW">
+			</a>
 
-		<!-- Brand -->
-		<a class="navbar-brand" href="/">
-			<img src="img/tmp_logo.png" height="30" alt="HSTW">
-		</a>
+			<!-- Collapse button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#RightNav" aria-controls="RightNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-		<!-- Collapse button -->
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#RightNav" aria-controls="RightNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+			<!-- Collapsible content -->
+			<div class="collapse navbar-collapse" id="RightNav">
+				<!-- Links -->
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Aquí</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Habrá</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contenido</a>
+					</li>
+				</ul>
+			</div>
+			<!-- Collapsible content -->
 
-		<!-- Collapsible content -->
-		<div class="collapse navbar-collapse" id="RightNav">
-			<!-- Links -->
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Aquí
-						<span class="sr-only">(current)</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Habrá</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Contenido</a>
-				</li>
-			</ul>
 		</div>
-		<!-- Collapsible content -->
-
 	</nav>
 	<!--/.Navbar-->
 
