@@ -14,6 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('/',function (){
-    return view('xd');
-});
