@@ -14,12 +14,12 @@
 			</a>
 
 			<!-- Collapse button -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#RightNav" aria-controls="RightNav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<!-- Collapsible content -->
-			<div class="collapse navbar-collapse" id="RightNav">
+			<div class="collapse navbar-collapse" id="navContent">
 				<!-- Links -->
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
@@ -50,7 +50,7 @@
 	</nav>
 	<!--/.Navbar-->
 
-	<div class="container-fluid mt-4">
+	<div class="container-fluid mt-4" id="container">
 		@yield('content')
 	</div>
 @endsection
