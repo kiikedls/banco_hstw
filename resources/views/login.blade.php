@@ -1,4 +1,4 @@
 @extends('layouts.resources')
-@section('content')
+@section('main-content')
 <!-- Aquí pones tu contenido Gerin <3
 @endsection
