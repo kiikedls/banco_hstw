@@ -15,12 +15,12 @@
 	<!-- Material Design Bootstrap -->
 	<link rel="stylesheet" href="css/mdb.min.css">
 	<!-- Extra CSS -->
-	@yield('CSS')
+	@yield('main-CSS')
 </head>
 
 <body>
 
-	@yield('content')
+	@yield('main-content')
 
 	<!-- jQuery -->
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -31,7 +31,7 @@
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="js/mdb.min.js"></script>
 	<!-- Extra JS -->
-	@yield('JS')
+	@yield('main-JS')
 </body>
 
 </html>
