@@ -10,6 +10,10 @@
 		background-image: url(/img/home.jpg);
 	}
 
+	.mask {
+		background: linear-gradient(40deg, rgba(69,202,252,0), rgba(48,63,159,1)) !important;
+	}
+
 	.navbar {
 		background-color: transparent;
 	}
@@ -31,16 +35,6 @@
 	.view {
 		height: 100%;
 	}
-
-	#navContent li a {
-		text-shadow: 5px 5px 5px #222;
-	}
-
-	.navbar-brand img {
-		-webkit-filter: drop-shadow(5px 5px 5px #222);
-		filter: drop-shadow(5px 5px 5px #222);
-	}
-
 </style>
 @endsection
 
@@ -48,7 +42,7 @@
 
 <div class="view intro-2" style="">
 	<div class="full-bg-img">
-		<div class="mask rgba-black-light flex-center">
+		<div class="mask flex-center">
 			<div class="container text-center white-text wow fadeInUp">
 				<h2 class="display-1 font-weight-bold">Bienvenido al SWPC</h2>
 				<br>
