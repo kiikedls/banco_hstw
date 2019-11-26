@@ -19,7 +19,10 @@
 	}
 
 	.top-nav-collapse {
-		background: linear-gradient(40deg, #45cafc, #303f9f);
+		background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+		-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+		box-shadow: 0 2px 5px 0
+		rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
 	}
 
 	@media only screen and (max-width: 768px) {
