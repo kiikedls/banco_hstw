@@ -13,6 +13,7 @@
 
 
 -- Volcando estructura de base de datos para hstw
+DROP DATABASE IF EXISTS `hstw`;
 CREATE DATABASE IF NOT EXISTS `hstw` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `hstw`;
 
@@ -157,9 +158,10 @@ CREATE TABLE IF NOT EXISTS `tipo_tarjeta` (
 
 -- Volcando estructura para tabla hstw.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) CHARACTER SET latin1 NOT NULL,
   `pass` text CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`user`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- La exportación de datos fue deseleccionada.
