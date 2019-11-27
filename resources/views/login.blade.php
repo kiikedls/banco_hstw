@@ -7,17 +7,17 @@
 	<div class="container">
 		<div class="row justify-content-end">
 
-			<div class="col-sm"></div>
+			<div class="col-sm col"></div>
 
 			<div class="col c z-depth-5 ">
 
-				<div class="row">
+				{{-- <div class="row"> --}}
 					<div class="titulo">
 						
 						<div class="icono"></div>
 					</div>
 					
-				</div>
+				{{-- </div> --}}
 
 				<div class="top">
 					<h6 class="title">Bienvenido</h6>
@@ -40,13 +40,13 @@
 						<label for="fomr2" class="white-text">Contraseña</label>
 					</div>
 
-					<button type="submit" class="btn btn-indigo boton">Iniciar Sesion</button>
+					<button type="submit" class="btn btn-indigo boton col-6">Ingresar</button>
 				</form>
 
 
 				
 			</div>
-			<div class="col-sm">
+			<div class="col-sm col">
 				
 			</div>
 		</div>
