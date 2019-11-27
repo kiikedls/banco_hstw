@@ -1,0 +1,77 @@
+.f {
+  background-image: url(../img/cafe.jpg);
+  background-repeat: no-repeat;
+  height: 550px;
+  width: 1600px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.c {
+  margin-top: 100px;
+  height: 430px;
+  width: 10px;
+  color: white;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.titulo {
+  background-image: url(../img/logos/logo.png);
+  margin-left: 90px;
+  margin-top: 40px;
+  background-size: cover;
+  width: 200px;
+  height: 70px;
+}
+
+.user {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.top {
+  margin-top: 15px;
+  margin-left: 130px;
+  background-position: center;
+}
+
+.key {
+  background-image: url(../img/key.png);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.u {
+  width: 200px;
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.k {
+  width: 200px;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.btn {
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.title {
+  color: #FFFFF;
+}
+
+.boton {
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=login.css.map */
