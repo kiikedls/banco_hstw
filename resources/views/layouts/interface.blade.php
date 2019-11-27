@@ -1,6 +1,8 @@
 @extends('layouts.resources')
 
 @section('main-CSS')
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/interface.css">
 @yield('CSS')
 @endsection
 
@@ -56,5 +58,14 @@
 @endsection
 
 @section('main-JS')
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+	$.extend( true, $.fn.dataTable.defaults, {
+		language: {
+			url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json'
+		}
+	} );
+</script>
 @yield('JS')
 @endsection
