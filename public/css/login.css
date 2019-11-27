@@ -11,7 +11,6 @@
 .c {
   margin-top: 100px;
   height: 430px;
-  width: 10px;
   color: white;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -19,7 +18,7 @@
 
 .titulo {
   background-image: url(../img/logos/logo.png);
-  margin-left: 90px;
+  margin-left: 70px;
   margin-top: 40px;
   background-size: cover;
   width: 200px;
@@ -36,7 +35,7 @@
 
 .top {
   margin-top: 15px;
-  margin-left: 130px;
+  margin-left: 115px;
   background-position: center;
 }
 
@@ -53,17 +52,17 @@
   width: 200px;
   margin-left: 50px;
   margin-top: 40px;
+  margin-bottom: -1px;
 }
 
 .k {
   width: 200px;
   margin-left: 50px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .btn {
-  margin-left: 100px;
-  margin-top: 20px;
+  margin-left: 85px;
 }
 
 .title {
