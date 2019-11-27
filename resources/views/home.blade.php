@@ -1,45 +1,7 @@
 @extends('layouts.interface')
 
 @section('CSS')
-<style type="text/css">
-	.view {
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-position: bottom;
-		background-size: cover;
-		background-image: url(/img/home.jpg);
-	}
-
-	.mask {
-		background: linear-gradient(40deg, rgba(69,202,252,0), rgba(48,63,159,1)) !important;
-	}
-
-	.navbar {
-		background-color: transparent;
-	}
-
-	.top-nav-collapse {
-		background: linear-gradient(40deg, #45cafc, #303f9f) !important;
-		-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
-		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
-	}
-
-	@media only screen and (max-width: 768px) {
-		.navbar {
-			background: linear-gradient(40deg, #45cafc, #303f9f) !important;
-			-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
-			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
-		}
-	}
-
-	html,
-	body,
-	header,
-	#container,
-	.view {
-		height: 100%;
-	}
-</style>
+<link rel="stylesheet" href="css/home.css">
 @endsection
 
 @section('content')
@@ -53,9 +15,7 @@
 				<h5>Sistema web de préstamos y cobranza</h5>
 				En este sitio podrás desempeñarte como trabajador de <b>HSTW Banco</b> de forma más ágil y rápida
 				<br>
-				<a class="btn btn-lg btn-outline-white mt-5" href="#">
-					EMPEZAR
-				</a>
+				<a class="btn btn-lg btn-outline-white mt-5 mx-auto" href="#">EMPEZAR</a>
 			</div>
 		</div>
 	</div>
