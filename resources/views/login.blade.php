@@ -38,6 +38,7 @@
 						<i class="fas fa-lock prefix"></i>
 						<input type="password" name="Pass" id="fomr2" class="form-control">
 						<label for="fomr2" class="white-text">Contraseña</label>
+						{!! $errors->first('Pass','<span class="help-block">Contraseña Incorrecto</span>')!!}
 					</div>
 
 					<button type="submit" class="btn btn-indigo boton col-6">Ingresar</button>
