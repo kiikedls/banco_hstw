@@ -1,4 +1,7 @@
 @extends('layouts.resources')
+@section('main-CSS')
+<link rel="stylesheet" href="css/fondo.css">
+@endsection
 @section('main-content')
 <body class="f img-fluid">
 	<div class="container">

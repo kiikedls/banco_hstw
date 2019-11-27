@@ -19,4 +19,10 @@ Route::get('/login', function () {
 	return view('login');
 });
 
+
+Route::get('/burodecredito', function () {
+	return view('burodecredito');
+});
+
 Route::post('/sesion','UserController@iniciarsesion');
+
