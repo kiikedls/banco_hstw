@@ -42,7 +42,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Verificar buro</a>
+						<a class="nav-link" href="burodecredito">Verificar buro</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Asignar tarjeta</a>
