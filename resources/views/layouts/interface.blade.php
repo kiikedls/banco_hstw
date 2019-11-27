@@ -27,11 +27,25 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/">Inicio</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Habrá</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="navDropClientes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="navDropClientes">
+							<a class="dropdown-item waves-effect waves-light" href="#">Área de cobranza</a>
+							<a class="dropdown-item waves-effect waves-light" href="#">Gestión de clientes</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="navDropPrestamos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstamos</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="navDropPrestamos">
+							<a class="dropdown-item waves-effect waves-light" href="#">Asignar préstamos</a>
+							<a class="dropdown-item waves-effect waves-light" href="#">Reportes</a>
+						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contenido</a>
+						<a class="nav-link" href="#">Verificar buro</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Asignar tarjeta</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
