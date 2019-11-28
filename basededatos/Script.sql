@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `hstw`.`creditos` (
   `id_tipo` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_clientec` (`id_cliente`),
-  INDEX `fk_tipob` (`id_tipo`),
+  INDEX `fk_tipob` (`id_tipo` ),
   CONSTRAINT `fk_cliente_c`
     FOREIGN KEY (`id_cliente`)
     REFERENCES `hstw`.`clientes` (`id`)
@@ -114,6 +114,27 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
+-- Table `hstw`.`prestamos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hstw`.`prestamos` (
+  `id` INT(11) NOT NULL,
+  `nombre` VARCHAR(20) NOT NULL,
+  `periodo` INT(11) NOT NULL,
+  `tipo` VARCHAR(15) NOT NULL,
+  `monto` VARCHAR(45) NOT NULL,
+  `id_cliente` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_clientep` (`id_cliente`),
+  CONSTRAINT `fk_clientep`
+    FOREIGN KEY (`id_cliente`)
+    REFERENCES `hstw`.`clientes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `hstw`.`pagos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hstw`.`pagos` (
@@ -124,33 +145,12 @@ CREATE TABLE IF NOT EXISTS `hstw`.`pagos` (
   `interes` INT(11) NOT NULL,
   `c_amortizacion` INT(11) NOT NULL,
   `c_final` INT(11) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `hstw`.`prestamos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`prestamos` (
-  `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
-  `años` INT(11) NOT NULL,
-  `tipo` VARCHAR(15) NOT NULL,
-  `monto` VARCHAR(45) NOT NULL,
-  `id_pago` INT(11) NOT NULL,
-  `id_cliente` INT(11) NOT NULL,
+  `id_prestamo` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_pago` (`id_pago`),
-  INDEX `fk_clientep` (`id_cliente`),
-  CONSTRAINT `fk_clientep`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pago`
-    FOREIGN KEY (`id_pago`)
-    REFERENCES `hstw`.`pagos` (`id`)
+  INDEX `fk_prestamo_idx` (`id_prestamo`),
+  CONSTRAINT `fk_prestamo`
+    FOREIGN KEY (`id_prestamo`)
+    REFERENCES `hstw`.`prestamos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

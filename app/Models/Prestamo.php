@@ -9,7 +9,7 @@ class Prestamo extends Model
     public $timestamps = false;
 
 	function pago() {
-		return $this->belongsTo(Pago::class);
+		return $this->hasMany(Pago::class);
 	}
 
 	function cliente() {

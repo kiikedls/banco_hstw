@@ -21,8 +21,14 @@ Route::get('/login', function () {
 
 
 Route::get('/burodecredito', function () {
-	return view('burodecredito');
+    return view('burodecredito');
 });
 
 Route::post('/sesion','UserController@iniciarsesion');
+
+Route::get('/clientes', function () {
+    return view('gestionclientes');
+});
+
+
 
