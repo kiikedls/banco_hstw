@@ -198,16 +198,12 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `hstw`.`buro`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hstw`.`buro` (
-  `id` INT NOT NULL,
-  `registro` DATE NOT NULL,
-  `id_cliente` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_clienteburo` (`id_cliente`),
-  CONSTRAINT `fk_clienteburo`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `compania` VARCHAR(100) NOT NULL,
+  `calificacion_cliente` INT(11) NOT NULL,
+  `info_adeudor` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 

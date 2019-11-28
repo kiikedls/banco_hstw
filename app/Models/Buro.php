@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Buro extends Model
 {
     protected $table = 'buro';
-	protected $fillable = ['cliente_id'];
+	protected $fillable = [
+		'id',
+		'fecha',
+		'compania',
+		'calificacion_cliente',
+		'info_adeudor'
+	];
 	public $timestamps = false;
 
-	function cliente() {
-		return $this->belongsTo(Cliente::class);
-	}
 }
