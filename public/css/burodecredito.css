@@ -2,4 +2,13 @@
   background-color: yellow;
 }
 
+table {
+  margin-top: 20px;
+}
+
+#pachon {
+  margin: 20px !important;
+  background-color: magenta;
+}
+
 /*# sourceMappingURL=burodecredito.css.map */
