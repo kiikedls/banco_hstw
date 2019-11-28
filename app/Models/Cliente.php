@@ -12,7 +12,8 @@ class Cliente extends Model
 		'apeP',
 		'apeM',
 		'f_nac',
-		'CURP'
+		'CURP',
+		'RFC'
 	];
 
 	function buro() {
