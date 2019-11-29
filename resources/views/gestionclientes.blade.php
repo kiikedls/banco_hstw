@@ -36,7 +36,7 @@ Aquí linkearás el CSS generado por SASS
                                 </div>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="date" id="inputDate" class="form-control" placeholder="Select Date">
+                                <input type="date" id="inputDate15" class="form-control" placeholder="Select Date">
                                 <label data-error="wrong" data-success="right" for="inputDate15">Fecha de Nacimiento</label>
                             </div>
                             <div class="md-form mb-5">
@@ -67,8 +67,8 @@ Aquí linkearás el CSS generado por SASS
                                 </div>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="text" id="inputcOL" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputcOL">Código Postal</label>
+                                <input type="text" id="inputcp" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputcp">Código Postal</label>
                             </div>
                             <div class="md-form mb-5">
                                 <input type="text" id="inputciudad" class="form-control validate">
@@ -81,7 +81,7 @@ Aquí linkearás el CSS generado por SASS
                         </div>
 
                         <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
-                            <button class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Confirmar
+                            <button class="btn blue-gradient btn-block buttonAdd" data-dismiss="modal">Confirmar
                                 <i class="far fa-paper-plane ml-1"></i>
                             </button>
                         </div>
@@ -96,35 +96,73 @@ Aquí linkearás el CSS generado por SASS
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Confirmar</h4>
-                            <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
+                            <h4 class="modal-title w-100 font-weight-bold cyan-text ml-5">Editar</h4>
+                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body mx-3 modal-inputs">
+                            <h3 class="text-left mb-5 md-form">Datos Personales</h3>
                             <div class="md-form mb-5">
-                                <input type="text" id="formNameEdit15" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="formNameEdit15">Name</label>
+                                <input type="text" id="inputName151" class="form-control validate" >
+                                <label data-error="wrong" data-success="right" for="inputName151">Nombre</label>
+                            </div>
+                            <div class="form-row md-form mb-5">
+                                <div class="col">
+                                    <input type="text" id="inputPosition151" class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="inputPosition151">Apellido Paterno</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="inputPosition181" class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="inputPosition181">Apellido Materno</label>
+                                </div>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="text" id="formPositionEdit15" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="formPositionEdit15">Position</label>
+                                <input type="date" id="inputDate151" class="form-control" placeholder="Select Date">
+                                <label data-error="wrong" data-success="right" for="inputDate151">Fecha de Nacimiento</label>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="text" id="formOfficeEdit15" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="formOfficeEdit15">Office</label>
+                                <input type="text" id="inputOfficeInput151" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputOfficeInput151">CURP</label>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="text" id="formAgeEdit15" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="formAgeEdit15">Age</label>
+                                <input type="text" id="inputAge154" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputAge154">RFC</label>
+                            </div>
+                            <h3 class="text-left mb-5 md-form">Dirección</h3>
+                            <div class="md-form mb-5">
+                                <input type="text" id="inputDir125" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputDir125">Calle</label>
                             </div>
                             <div class="md-form mb-5">
-                                <input type="text" id="formDateEdit" class="form-control datepicker">
-                                <label data-error="wrong" data-success="right" for="formDateEdit15">Date</label>
+                                <input type="text" id="inputcOL1" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputcOL1">Colonía</label>
+                            </div>
+                            <div class="form-row md-form mb-4">
+                                <div class="col">
+                                    <input type="text" id="inputNint2" class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="inputNint2">Número Interior</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="inputNext4" class="form-control validate">
+                                    <label data-error="wrong" data-success="right" for="inputNext4">Número Exterior</label>
+                                </div>
+                            </div>
+                            <div class="md-form mb-5">
+                                <input type="text" id="inputcp1" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputcp1">Código Postal</label>
+                            </div>
+                            <div class="md-form mb-5">
+                                <input type="text" id="inputciudad1" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputciudad1">Ciudad </label>
+                            </div>
+                            <div class="md-form mb-5">
+                                <input type="text" id="inputpais1" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="inputpais1">País</label>
                             </div>
                         </div>
                         <div class="modal-footer d-flex justify-content-center editInsideWrapper">
-                            <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Editar
+                            <button class="btn blue-gradient btn-block editInside" data-dismiss="modal">Editar
                                 <i class="far fa-paper-plane ml-1"></i>
                             </button>
                         </div>
@@ -133,7 +171,7 @@ Aquí linkearás el CSS generado por SASS
             </div>
             <div class="text-center buttonEditWrapper">
                 <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit15"
-                        disabled>Editar<i class="fas fa-pen-square ml-1"></i></button>
+                        >Editar<i class="fas fa-pen-square ml-1"></i></button>
             </div>
             <div class="modal fade" id="modalDelete15" tabindex="-1" role="dialog" aria-labelledby="modalDelete15"
                  aria-hidden="true">
