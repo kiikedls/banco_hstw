@@ -29,9 +29,8 @@ Route::post('/sesion','UserController@iniciarsesion');
 route::get('/tarjetas',function (){
     return view('tarjetas');
 });
-Route::get('/clientes', function () {
-    return view('gestionclientes');
-});
+
+Route::get('/clientes','gestion@vista');
 
 
 
