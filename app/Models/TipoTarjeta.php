@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoTarjeta extends Model
 {
-    protected $primaryKey = 'tipo';
-	public $incrementing = false;
-	protected $keyType = 'string';
+    public $timestamps = false;
 
 	function tarjetas() {
-		return $this->hasMany(Tarjeta::class, 'tipo');
+		return $this->hasMany(Tarjeta::class, 'id_tipo');
 	}
 }

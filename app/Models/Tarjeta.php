@@ -13,6 +13,6 @@ class Tarjeta extends Model
 	}
 
 	function tipo() {
-		return $this->belongsTo(TipoTarjeta::class, 'tipo');
+		return $this->belongsTo(TipoTarjeta::class, 'id_tipo');
 	}
 }

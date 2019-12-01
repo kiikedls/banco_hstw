@@ -1,223 +1,170 @@
--- MySQL Workbench Forward Engineering
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.4.8-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             10.2.0.5599
+-- --------------------------------------------------------
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema hstw
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema hstw
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `hstw` DEFAULT CHARACTER SET latin1 ;
-USE `hstw` ;
-
--- -----------------------------------------------------
--- Table `hstw`.`clientes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`clientes` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) NOT NULL,
-  `apellidoM` VARCHAR(20) NOT NULL,
-  `apellidoP` VARCHAR(20) NOT NULL,
-  `fecha_nacimiento` DATE NOT NULL,
-  `CURP` VARCHAR(20) NOT NULL,
-  `RFC` VARCHAR(15) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- -----------------------------------------------------
--- Table `hstw`.`tipo_bancario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`tipo_bancario` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(15) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+-- Volcando estructura de base de datos para hstw
+CREATE DATABASE IF NOT EXISTS `hstw` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `hstw`;
 
+-- Volcando estructura para tabla hstw.buro
+CREATE TABLE IF NOT EXISTS `buro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `compania` varchar(100) NOT NULL,
+  `calificacion_cliente` int(11) NOT NULL,
+  `info_adeudor` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- -----------------------------------------------------
--- Table `hstw`.`creditos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`creditos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) NOT NULL,
-  `codigo` VARCHAR(15) NOT NULL,
-  `estado` VARCHAR(10) NOT NULL,
-  `comportamiento` VARCHAR(15) NOT NULL,
-  `id_cliente` INT(11) NOT NULL,
-  `id_tipo` INT(11) NOT NULL,
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla hstw.clientes
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(20) NOT NULL,
+  `apeM` varchar(20) NOT NULL,
+  `apeP` varchar(20) NOT NULL,
+  `f_nac` date NOT NULL,
+  `CURP` varchar(20) NOT NULL,
+  `RFC` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla hstw.creditos
+CREATE TABLE IF NOT EXISTS `creditos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `codigo` varchar(15) NOT NULL,
+  `estado` varchar(10) NOT NULL,
+  `comportamiento` varchar(15) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_clientec` (`id_cliente`),
-  INDEX `fk_tipob` (`id_tipo` ),
-  CONSTRAINT `fk_cliente_c`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tipob`
-    FOREIGN KEY (`id_tipo`)
-    REFERENCES `hstw`.`tipo_bancario` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+  KEY `fk_clientec` (`cliente_id`),
+  KEY `fk_tipob` (`id_tipo`),
+  CONSTRAINT `fk_cliente_c` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tipob` FOREIGN KEY (`id_tipo`) REFERENCES `tipo_bancario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`direcciones`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`direcciones` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `calle` VARCHAR(20) NOT NULL,
-  `numero_int` VARCHAR(5) NOT NULL,
-  `numero_ext` VARCHAR(5) NOT NULL,
-  `calles` VARCHAR(20) NOT NULL,
-  `cp` INT(11) NOT NULL,
-  `colonia` VARCHAR(20) NOT NULL,
-  `ciudad` VARCHAR(40) NOT NULL,
-  `estado` VARCHAR(40) NOT NULL,
-  `pais` VARCHAR(40) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+-- Volcando estructura para tabla hstw.direcciones
+CREATE TABLE IF NOT EXISTS `direcciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `calle` varchar(20) NOT NULL,
+  `num_int` varchar(5) NOT NULL,
+  `num_ext` varchar(5) NOT NULL,
+  `calles` varchar(20) NOT NULL,
+  `cp` int(11) NOT NULL,
+  `colonia` varchar(20) NOT NULL,
+  `ciudad` varchar(40) NOT NULL,
+  `estado` varchar(40) NOT NULL,
+  `pais` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`direccion_cliente`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`direccion_cliente` (
-  `id_direccion` INT(11) NOT NULL,
-  `id_cliente` INT(11) NOT NULL,
-  INDEX `fk_direccion` (`id_direccion`),
-  INDEX `fk_cliente_idx` (`id_cliente`),
-  CONSTRAINT `fk_cliente`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_direccion`
-    FOREIGN KEY (`id_direccion`)
-    REFERENCES `hstw`.`direcciones` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+-- Volcando estructura para tabla hstw.direccion_cliente
+CREATE TABLE IF NOT EXISTS `direccion_cliente` (
+  `direccion_id` int(11) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
+  KEY `fk_direccion` (`direccion_id`),
+  KEY `fk_cliente_idx` (`cliente_id`),
+  CONSTRAINT `fk_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_direccion` FOREIGN KEY (`direccion_id`) REFERENCES `direcciones` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`prestamos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`prestamos` (
-  `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
-  `periodo` INT(11) NOT NULL,
-  `tipo` VARCHAR(15) NOT NULL,
-  `monto` VARCHAR(45) NOT NULL,
-  `id_cliente` INT(11) NOT NULL,
+-- Volcando estructura para tabla hstw.pagos
+CREATE TABLE IF NOT EXISTS `pagos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pagos` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cuota` int(11) NOT NULL,
+  `interes` int(11) NOT NULL,
+  `c_amortizacion` int(11) NOT NULL,
+  `c_final` int(11) NOT NULL,
+  `prestamo_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_clientep` (`id_cliente`),
-  CONSTRAINT `fk_clientep`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+  KEY `fk_prestamo_idx` (`prestamo_id`),
+  CONSTRAINT `fk_prestamo` FOREIGN KEY (`prestamo_id`) REFERENCES `prestamos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`pagos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`pagos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `pagos` INT(11) NOT NULL,
-  `fecha` DATE NOT NULL,
-  `cuota` INT(11) NOT NULL,
-  `interes` INT(11) NOT NULL,
-  `c_amortizacion` INT(11) NOT NULL,
-  `c_final` INT(11) NOT NULL,
-  `id_prestamo` INT NOT NULL,
+-- Volcando estructura para tabla hstw.prestamos
+CREATE TABLE IF NOT EXISTS `prestamos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `periodo` int(11) NOT NULL,
+  `tipo` varchar(15) NOT NULL,
+  `monto` varchar(45) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_prestamo_idx` (`id_prestamo`),
-  CONSTRAINT `fk_prestamo`
-    FOREIGN KEY (`id_prestamo`)
-    REFERENCES `hstw`.`prestamos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+  KEY `fk_clientep` (`cliente_id`),
+  CONSTRAINT `fk_clientep` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`tipo_tarjeta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`tipo_tarjeta` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `hstw`.`tarjetas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`tarjetas` (
-  `id` INT(11) NOT NULL,
-  `numero` TEXT NOT NULL,
-  `fecha_vencimiento` VARCHAR(45) NOT NULL,
-  `id_tipo` INT(11) NOT NULL,
-  `id_cliente` INT(11) NOT NULL,
+-- Volcando estructura para tabla hstw.tarjetas
+CREATE TABLE IF NOT EXISTS `tarjetas` (
+  `id` int(11) NOT NULL,
+  `numero` text NOT NULL,
+  `fecha_vencimiento` varchar(45) NOT NULL,
+  `id_tipo` int(11) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_tipo` (`id_tipo`),
-  INDEX `fk_clientet` (`id_cliente`),
-  CONSTRAINT `fk_clientet`
-    FOREIGN KEY (`id_cliente`)
-    REFERENCES `hstw`.`clientes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tipo`
-    FOREIGN KEY (`id_tipo`)
-    REFERENCES `hstw`.`tipo_tarjeta` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+  KEY `fk_tipo` (`id_tipo`),
+  KEY `fk_clientet` (`cliente_id`),
+  CONSTRAINT `fk_clientet` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tipo` FOREIGN KEY (`id_tipo`) REFERENCES `tipo_tarjeta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`buro`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`buro` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
-  `compania` VARCHAR(100) NOT NULL,
-  `calificacion_cliente` INT(11) NOT NULL,
-  `info_adeudor` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+-- Volcando estructura para tabla hstw.tipo_bancario
+CREATE TABLE IF NOT EXISTS `tipo_bancario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
--- -----------------------------------------------------
--- Table `hstw`.`usuarios`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hstw`.`usuarios` (
-  `id` INT NOT NULL,
-  `user` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+-- Volcando estructura para tabla hstw.tipo_tarjeta
+CREATE TABLE IF NOT EXISTS `tipo_tarjeta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- La exportación de datos fue deseleccionada.
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- Volcando estructura para tabla hstw.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL,
+  `user` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- La exportación de datos fue deseleccionada.
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

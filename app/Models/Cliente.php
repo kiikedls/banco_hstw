@@ -25,7 +25,7 @@ class Cliente extends Model
 	}
 
 	function direcciones() {
-		return $this->belongsToMany(Direccion::class, 'cliente_direccion', 'cliente_id', 'direccion_id');
+		return $this->belongsToMany(Direccion::class, 'direccion_cliente', 'cliente_id', 'direccion_id');
 	}
 
 	function prestamos() {
