@@ -1,13 +1,9 @@
 @extends('layouts.interface')
 @section('CSS')
-<!--
-Aquí linkearás el CSS generado por SASS
-<link rel="stylesheet" href="css/example.css"> -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="/DataTables-1.10.20/extensions/Editor-1.9.2/css/editor.bootstrap.css">
 @endsection
-
 @section('content')
-
     <div class="wrapper-editor">
         <div class="row d-flex justify-content-center modalWrapper">
             <div class="modal fade addNewInputs" id="modalAdd15" tabindex="-1" role="dialog" aria-labelledby="modalAdd15"
@@ -97,7 +93,6 @@ Aquí linkearás el CSS generado por SASS
                                     </div>
                                 </form>
                             </div>
-
                     </div>
                 </div>
             </div>
@@ -182,10 +177,6 @@ Aquí linkearás el CSS generado por SASS
                     </div>
                 </div>
             </div>
-            <div class="text-center buttonEditWrapper">
-                <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit15"
-                        >Editar<i class="fas fa-pen-square ml-1"></i></button>
-            </div>
             <div class="modal fade" id="modalDelete15" tabindex="-1" role="dialog" aria-labelledby="modalDelete15"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -210,15 +201,13 @@ Aquí linkearás el CSS generado por SASS
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <button class="btn btn-danger btn-sm btn-rounded buttonDelete" data-toggle="modal" disabled data-target="#modalDelete15"
-                        disabled>Eliminar<i class="fas fa-times ml-1"></i></button>
-            </div>
         </div>
         <div class="table-responsive">
              <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
+                <th class="th-sm" hidden>id
+                </th>
                 <th class="th-sm">Nombre
                 </th>
                 <th class="th-sm">Apellidos
@@ -231,52 +220,47 @@ Aquí linkearás el CSS generado por SASS
                 </th>
                 <th class="th-sm">Direccion
                 </th>
+                <th class="th-sm">Gestion
+                </th>
             </tr>
             </thead>
             <tbody>
             @foreach($clientes as $clien)
                 <tr>
+                    <td id="buttonid" hidden>{{$clien->id}}</td>
                     <td>{{$clien->nom}}</td>
                     <td>{{$clien->apeP.' '.$clien->apeM}}</td>
                     <td>{{$clien->f_nac}}</td>
                     <td>{{$clien->CURP}}</td>
                     <td>{{$clien->RFC}}</td>
                     <td>{{$clien['direcciones'][0]->calle.'  '.$clien['direcciones'][0]->num_int.'  '.$clien['direcciones'][0]->num_ext.'  '.$clien['direcciones'][0]->calles.'  '.$clien['direcciones'][0]->cp.'  '.$clien['direcciones'][0]->colonia.'  '.$clien['direcciones'][0]->ciudad.'  '.$clien['direcciones'][0]->estado.'  '.$clien['direcciones'][0]->pais}}</td>
+                    <td>
+                        <form type="GET" action="/editar">
+                            <input type="text"  name="id" value="{{$clien->id}}" hidden>
+                            <button  type="submit" class="btn btn-success btn-rounded btn-sm buttonEdit" >Editar<i class="fas fa-pen-square ml-1"></i></button>
+                        </form>
+
+                        <form type="GET" action="/eliminar">
+                            <input type="text"  name="del_idc" value="{{$clien->id}}" hidden>
+                            <input type="text"  name="del_idd" value="{{$clien->id}}" hidden>
+                            <button  type="submit" class="btn btn-danger btn-rounded btn-sm buttonEdit" >Eliminar<i class="fas fa-pen-square ml-1"></i></button>
+                        </form>
+
+                    </td>
                 </tr>
             @endforeach
             </tbody>
-
         </table>
         </div>
     </div>
-<!--
-Esta es la sección principal donde incluirás tu trabajo.
-
-El contenido esta por debajo del Navbar de la plantilla y
-esta dentro de un <div class="container-fluid mt-4" id="container">
--->
 @endsection
-
-
 @section('JS')
-    <script type="text/javascript"> //dtBasicExample
+    <script type="text/javascript">
         $(document).ready(function() {
             var table = $('#dtBasicExample').DataTable( {
                 dom: 'Bfrtip',
                 select: true
             } );
         } );
-        $('#dtBasicExample').mdbEditor({
-            mdbEditor: true
-        });
     </script>
-    <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
-<!--
-Puedes añadir código JavaScript y librerías.
-
-Tu código aquí no afectará el trabajo de los demás
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script type="text/javascript">
-</script>
--->
 @endsection
