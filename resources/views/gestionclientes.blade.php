@@ -242,7 +242,7 @@
 
                         <form type="GET" action="/eliminar">
                             <input type="text"  name="del_idc" value="{{$clien->id}}" hidden>
-                            <input type="text"  name="del_idd" value="{{$clien->id}}" hidden>
+                            <input type="text"  name="del_idd" value="{{$clien['direcciones'][0]->id}}" hidden>
                             <button  type="submit" class="btn btn-danger btn-rounded btn-sm buttonEdit" >Eliminar<i class="fas fa-pen-square ml-1"></i></button>
                         </form>
 
