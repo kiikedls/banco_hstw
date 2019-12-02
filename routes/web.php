@@ -30,6 +30,9 @@ route::get('/tarjetas',function (){
     return view('tarjetas');
 });
 Route::get('/clientes','gestion@vista');
+Route::get('/editar','gestion@editar');
+Route::post('/actualizar','gestion@actualizar');
+Route::get('/eliminar','gestion@eliminar');
 Route::post('/agregar','gestion@agregar');
 
 
