@@ -75,4 +75,21 @@ header,
   height: 100%;
 }
 
+#home-menu {
+  max-width: 346px;
+  font-size: 20px;
+}
+#home-menu a:hover {
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  color: #fff !important;
+  background: linear-gradient(40deg, #45cafc, #303f9f) !important;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  margin-left: 8px;
+}
+
 /*# sourceMappingURL=home.css.map */

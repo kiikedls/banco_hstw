@@ -42,10 +42,10 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="burodecredito">Verificar buro</a>
+						<a class="nav-link" href="/burodecredito">Verificar buro</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="tarjetas">Asignar tarjeta</a>
+						<a class="nav-link" href="/tarjetas">Asignar tarjeta</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
