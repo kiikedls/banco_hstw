@@ -36,4 +36,5 @@ Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
+Route::get('/calprestamo','gestion@calprestamo');
 Route::post('/agregar','gestion@agregar');

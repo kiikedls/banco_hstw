@@ -89,4 +89,9 @@ class gestion extends Controller
          $direccion->delete();
          return back();
     }
+    public function calprestamo(){
+            $personas = cliente::all();
+            return view('calprestamo')->with('personas', $personas);
+    }
+
 }

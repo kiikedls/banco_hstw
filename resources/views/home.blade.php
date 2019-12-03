@@ -29,7 +29,7 @@
 				<a href="/clientes"
 					class="list-group-item list-group-item-action mb-4 py-2 border-0 z-depth-1 rounded">Gestión de
 					clientes</a>
-				<a href="#!"
+				<a href="/calprestamo"
 					class="list-group-item list-group-item-action mb-4 py-2 border-0 z-depth-1 rounded">Calcular
 					préstamos</a>
 				<a href="/burodecredito"
