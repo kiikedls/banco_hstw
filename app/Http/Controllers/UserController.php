@@ -36,4 +36,23 @@ class UserController extends Controller
 		}
 		
 	}
+
+	function cerrarsesion()
+	{
+		return view('login');
+	}
+
+	function buscar(Request $r)
+	{
+		// $texto=$r->get('consulta');
+		// return $texto;
+		// $cliente = Usuario::where("RFC","=",);
+		$datos = $r->get('consulta');
+
+		
+
+
+		return $datos;
+	}
+	
 }

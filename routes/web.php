@@ -18,13 +18,22 @@ Route::get('/', function () {
 Route::get('/login', function () {
 	return view('login');
 });
+Route::post('/sesion','UserController@iniciarsesion');
 
+Route::get('/cerrar','UserController@cerrarsesion');
+
+Route::get('/reporte', function ()
+{
+	return view('reportes');
+});
+
+Route::post('/buscar','UserController@buscar');
 
 Route::get('/burodecredito', function () {
     return view('burodecredito');
 });
 
-Route::post('/sesion','UserController@iniciarsesion');
+
 
 route::get('/tarjetas',function (){
     return view('tarjetas');

@@ -38,7 +38,7 @@
 						<a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="navDropPrestamos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Préstamos</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="navDropPrestamos">
 							<a class="dropdown-item waves-effect waves-light" href="#">Asignar préstamos</a>
-							<a class="dropdown-item waves-effect waves-light" href="#">Reportes</a>
+							<a class="dropdown-item waves-effect waves-light" href="/reporte">Reportes</a>
 						</div>
 					</li>
 					<li class="nav-item">
