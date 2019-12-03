@@ -11,7 +11,7 @@ select.custom-select {
   color: #757575;
 }
 
-button {
+button.blue-gradient {
   border-radius: 50px !important;
   width: 250px !important;
   margin-inline: auto !important;

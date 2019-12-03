@@ -12,6 +12,9 @@ body
 	to
 		opacity: 1
 
+@mixin blue-gradient()
+	background: linear-gradient(40deg, #45cafc, #303f9f) !important
+
 @keyframes fadein
 	@include opacity()
 @-moz-keyframes fadein
@@ -21,8 +24,8 @@ body
 @-ms-keyframes fadein
 	@include opacity()
 
-@mixin colorBg()
-	background: linear-gradient(40deg, #45cafc, #303f9f) !important
+@mixin colorNav()
+	@include blue-gradient()
 	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
 
@@ -40,11 +43,11 @@ body
 	background-color: transparent
 
 .top-nav-collapse
-	@include colorBg()
+	@include colorNav()
 
 @media only screen and (max-width: 768px)
 	.navbar
-		@include colorBg()
+		@include colorNav()
 
 html,
 body,
@@ -52,3 +55,20 @@ header,
 #container,
 .view
 	height: 100%
+
+#home-menu
+	max-width: 346px
+	font-size: 20px
+	a:hover
+		$transition: all .5s
+		transition: $transition ease-in-out
+		-moz-transition: $transition ease-in
+		-o-transition: $transition ease-in
+		-webkit-transition: $transition ease-in
+		transition: $transition ease-in
+
+		color: #fff !important
+		@include blue-gradient()
+		-webkit-box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important
+		box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important
+		margin-left: 8px

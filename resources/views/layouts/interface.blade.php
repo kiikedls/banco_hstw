@@ -32,6 +32,7 @@
 						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="navDropClientes">
 							<a class="dropdown-item waves-effect waves-light" href="#">Área de cobranza</a>
 							<a class="dropdown-item waves-effect waves-light" href="{{url('/clientes')}}">Gestión de clientes</a>
+							<a class="dropdown-item waves-effect waves-light" href="{{url('/calprestamo')}}">Calcular Préstamo</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown">
@@ -42,10 +43,10 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="burodecredito">Verificar buro</a>
+						<a class="nav-link" href="/burodecredito">Verificar buro</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="tarjetas">Asignar tarjeta</a>
+						<a class="nav-link" href="/tarjetas">Asignar tarjeta</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
