@@ -29,11 +29,11 @@ Route::post('/sesion','UserController@iniciarsesion');
 route::get('/tarjetas',function (){
     return view('tarjetas');
 });
+route::get('/prestamos',function (){
+    return view('prestamo');
+});
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
 Route::post('/agregar','gestion@agregar');
-
-
-

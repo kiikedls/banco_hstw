@@ -1,0 +1,16 @@
+button.btn-outline-success {
+  border-radius: 50px !important;
+  width: auto;
+  margin: auto;
+}
+
+button#verifica2 {
+  margin-top: 100px !important;
+  margin-inline: auto;
+}
+
+#send2 {
+  margin-top: 25px !important;
+}
+
+/*# sourceMappingURL=prestamos.css.map */
