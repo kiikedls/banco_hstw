@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente  as  cliente;
 use App\Models\Direccion as direccion;
-
+use Dompdf\Dompdf;
 
 class gestion extends Controller
 {
@@ -93,5 +93,18 @@ class gestion extends Controller
             $personas = cliente::all();
             return view('calprestamo')->with('personas', $personas);
     }
+    public function download()
+    {
+        $html= view("viewpdf");
+        $pdf = new Dompdf();
+        $pdf->loadHtml($html);
+        $pdf->render();
+        return $pdf->stream();
+    }
+
+
+
+
+
 
 }

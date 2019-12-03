@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="md-form mb-5">
                                         <input type="text" id="inputestado" name="estado" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputestado">Ciudad </label>
+                                        <label data-error="wrong" data-success="right" for="inputestado">Estado</label>
                                     </div>
                                     <div class="md-form mb-5">
                                         <input type="text" id="inputpais" name="pais" class="form-control validate">
@@ -99,107 +99,6 @@
             <div class="text-center">
                 <a href="" class="btn btn-info btn-rounded btn-sm" data-toggle="modal" data-target="#modalAdd15">Agregar<i
                             class="fas fa-plus-square ml-1"></i></a>
-            </div>
-            <div class="modal fade modalEditClass" id="modalEdit15" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold cyan-text ml-5">Editar</h4>
-                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body mx-3 modal-inputs">
-                            <h3 class="text-left mb-5 md-form">Datos Personales</h3>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputName151" class="form-control validate" >
-                                <label data-error="wrong" data-success="right" for="inputName151">Nombre</label>
-                            </div>
-                            <div class="form-row md-form mb-5">
-                                <div class="col">
-                                    <input type="text" id="inputPosition151" class="form-control validate">
-                                    <label data-error="wrong" data-success="right" for="inputPosition151">Apellido Paterno</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="inputPosition181" class="form-control validate">
-                                    <label data-error="wrong" data-success="right" for="inputPosition181">Apellido Materno</label>
-                                </div>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="date" id="inputDate151" class="form-control" placeholder="Select Date">
-                                <label data-error="wrong" data-success="right" for="inputDate151">Fecha de Nacimiento</label>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputOfficeInput151" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputOfficeInput151">CURP</label>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputAge154" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputAge154">RFC</label>
-                            </div>
-                            <h3 class="text-left mb-5 md-form">Dirección</h3>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputDir125" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputDir125">Calle</label>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputcOL1" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputcOL1">Colonía</label>
-                            </div>
-                            <div class="form-row md-form mb-4">
-                                <div class="col">
-                                    <input type="text" id="inputNint2" class="form-control validate">
-                                    <label data-error="wrong" data-success="right" for="inputNint2">Número Interior</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="inputNext4" class="form-control validate">
-                                    <label data-error="wrong" data-success="right" for="inputNext4">Número Exterior</label>
-                                </div>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputcp1" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputcp1">Código Postal</label>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputciudad1" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputciudad1">Ciudad </label>
-                            </div>
-                            <div class="md-form mb-5">
-                                <input type="text" id="inputpais1" class="form-control validate">
-                                <label data-error="wrong" data-success="right" for="inputpais1">País</label>
-                            </div>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center editInsideWrapper">
-                            <button class="btn blue-gradient btn-block editInside" data-dismiss="modal">Editar
-                                <i class="far fa-paper-plane ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="modalDelete15" tabindex="-1" role="dialog" aria-labelledby="modalDelete15"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold ml-5 text-danger">Eliminar</h4>
-                            <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body mx-3">
-                            <p class="text-center h4">Estas seguro de eliminar el renglon?</p>
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center deleteButtonsWrapper">
-                            <button type="button" class="btn btn-outline-danger btnYesClass" id="btnYes15" data-dismiss="modal">Si
-                                <i class="far fa-paper-plane ml-1"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-primary btnNoClass" id="btnNo15" data-dismiss="modal">No
-                                <i class="far fa-paper-plane ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="table-responsive">
@@ -235,16 +134,19 @@
                     <td>{{$clien->RFC}}</td>
                     <td>{{$clien['direcciones'][0]->calle.'  '.$clien['direcciones'][0]->num_int.'  '.$clien['direcciones'][0]->num_ext.'  '.$clien['direcciones'][0]->calles.'  '.$clien['direcciones'][0]->cp.'  '.$clien['direcciones'][0]->colonia.'  '.$clien['direcciones'][0]->ciudad.'  '.$clien['direcciones'][0]->estado.'  '.$clien['direcciones'][0]->pais}}</td>
                     <td>
+                      <center>
                         <form type="GET" action="/editar">
                             <input type="text"  name="id" value="{{$clien->id}}" hidden>
-                            <button  type="submit" class="btn btn-success btn-rounded btn-sm buttonEdit" >Editar<i class="fas fa-pen-square ml-1"></i></button>
+                            <button  title='Editar'  type="submit" class="btn btn-success btn-rounded btn-sm buttonEdit" ><i class="fas fa-pen-square ml-1"></i></button>
                         </form>
 
                         <form type="GET" action="/eliminar">
                             <input type="text"  name="del_idc" value="{{$clien->id}}" hidden>
                             <input type="text"  name="del_idd" value="{{$clien['direcciones'][0]->id}}" hidden>
-                            <button  type="submit" class="btn btn-danger btn-rounded btn-sm buttonEdit" >Eliminar<i class="fas fa-pen-square ml-1"></i></button>
+                            <button  title='Eliminar' type="submit" class="btn btn-danger btn-rounded btn-sm buttonEdit" ><i class="fas fa-trash-alt ml-1"></i></button>
                         </form>
+                      </center>
+
 
                     </td>
                 </tr>

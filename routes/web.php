@@ -34,7 +34,11 @@ route::get('/prestamos',function (){
 });
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
+Route::get('/pdf',function (){
+    return view('viewpdf');
+});-
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
+Route::get('/download','gestion@download');
 Route::get('/calprestamo','gestion@calprestamo');
 Route::post('/agregar','gestion@agregar');

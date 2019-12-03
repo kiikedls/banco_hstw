@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <center>
-    <form class="text-center border border-light p-5 a " action="#!">
+    <form class="text-center border border-light p-5 a " action="#!" method="POST">
         <p class="h4 mb-4">Calcular Préstamo</p>
         <label>Solicitante</label>
         <select class="browser-default custom-select mb-4" required>
@@ -20,21 +20,12 @@
             <option value="">Quincenal</option>
             <option value="">Mensual</option>
         </select>
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Tasa de interes">
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto Requerido">
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto a Pagar">
-
-        <button class="btn btn-info btn-block" type="submit">Send</button>
+        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Tasa de interes" required>
+        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto Requerido" required>
+        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto a Pagar" required>
+        <button class="btn btn-info btn-block" type="submit">Calcular</button>
     </form>
 </center>
 @endsection
 @section('JS')
-<!--
-Puedes añadir código JavaScript y librerías.
-
-Tu código aquí no afectará el trabajo de los demás
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script type="text/javascript">
-</script>
--->
 @endsection
