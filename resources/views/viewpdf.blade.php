@@ -24,12 +24,13 @@
     </thead>
     <tbody>
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+
+        <th scope="row">{{$numero}}</th>
+        <td>{{$fecha}}</td>
+        <td>{{$cuota}}</td>
+        <td>{{$interes}}</td>
+        <td>dewwe</td>
+        <td>{{$capital}}</td>
     </tr>
     </tbody>
 </table>
@@ -39,5 +40,6 @@
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/mdb.min.js"></script>
+
 </body>
 </html>

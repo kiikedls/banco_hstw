@@ -146,8 +146,6 @@
                             <button  title='Eliminar' type="submit" class="btn btn-danger btn-rounded btn-sm buttonEdit" ><i class="fas fa-trash-alt ml-1"></i></button>
                         </form>
                       </center>
-
-
                     </td>
                 </tr>
             @endforeach

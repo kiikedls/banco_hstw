@@ -4,7 +4,8 @@
 @endsection
 @section('content')
 <center>
-    <form class="text-center border border-light p-5 a " action="#!" method="POST">
+    <form class="text-center border border-light p-5 a " action="/pdf" method="POST">
+        @csrf
         <p class="h4 mb-4">Calcular Préstamo</p>
         <label>Solicitante</label>
         <select class="browser-default custom-select mb-4" required>
@@ -13,19 +14,24 @@
                 <option value="{{$persona->id}}">{{$persona->nom.' '.$persona->apeP.' '.$persona->apeM}}</option>
             @endforeach
         </select>
-        <input type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Años" required>
+        <input type="number" id="indat" name="ndp" hidden>
+        <input name="años" type="number" id="defaultContactFormName" class="form-control mb-4" placeholder="Años"  min="1" pattern="^[0-9]+" required>
         <label>Tipo de pago</label>
-        <select class="browser-default custom-select mb-4" required>
+        <select  name="tipop" class="browser-default custom-select mb-4" required>
             <option  disabled>Seleccione:</option>
-            <option value="">Quincenal</option>
-            <option value="">Mensual</option>
+            <option value="Quincenal">Quincenal</option>
+            <option value="Mensual">Mensual</option>
         </select>
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Tasa de interes" required>
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto Requerido" required>
-        <input type="number" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto a Pagar" required>
+        <input type="number" name="interesc" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Tasa de interes" min="0" pattern="^[0-9]+" required>
+        <input  name="capitalr" type="number" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto Requerido" min="1" pattern="^[0-9]+" required>
+        <input type="number"  id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto a Pagar"  min="1" pattern="^[0-9]+" required>
         <button class="btn btn-info btn-block" type="submit">Calcular</button>
     </form>
 </center>
 @endsection
 @section('JS')
+    <script>
+        var rand_NumeroAleatorio = Math.round(Math.random()*999999999999);
+        $('#indat').val(rand_NumeroAleatorio);
+    </script>
 @endsection
