@@ -18,4 +18,12 @@ class CobranzaController extends Controller
 
         return view('cobranza', compact('clientes'));
     }
+
+    function pagosAtrasados(Request $request) {
+        $client_id = $request->get('id');
+
+        $client = Cliente::find($client_id);
+
+        return $client->pagos_atrasados()->sortByDesc('prestamo_id')->toJson();
+    }
 }

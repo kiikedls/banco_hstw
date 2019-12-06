@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/cobranza', 'CobranzaController@viewCobranza');
 
+Route::post('/pagos_atrasados', 'CobranzaController@pagosAtrasados');
+
 Route::get('/login', function () {
 	return view('login');
 });
