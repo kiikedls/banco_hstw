@@ -22,8 +22,7 @@ Route::post('/sesion','UserController@iniciarsesion');
 
 Route::get('/cerrar','UserController@cerrarsesion');
 
-Route::get('/reporte', function ()
-{
+Route::get('/reporte', function (){
 	return view('reportes');
 });
 

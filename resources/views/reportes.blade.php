@@ -17,32 +17,32 @@
 		<div class="row justify-content-md-center white-text" id="reporte" >
 			<strong>Reporte</strong>
 		</div>
-		<div class="row">
-			<h6>Nombre:</h6>
-			<h6 id="nombre">Gerardo</h6>
+		<div class="row" id="centro" style="margin-top: 5px;">
+			<h6 class="h6">Nombre:</h6>
+			<h6 id="nombre"></h6>
 		</div>
-		<div class="row justify-content-md-center">
+		<div class="row justify-content-md-center" id="centro">
 			<div class="col-sm">
 				<div class="row">
-					<h6>Años a Pagar:</h6>
-					<h6 id="cantidad">5</h6>
+					<h6 class="h6">Años a Pagar:</h6>
+					<h6 id="cantidad"></h6>
 				</div>
 				<div class="row">
-					<h6>Tipo de Pago:</h6>
-					<h6 id="tipo">Quincenal</h6>
+					<h6 class="h6">Tipo de Pago:</h6>
+					<h6 id="tipo"></h6>
 				</div>
 				<div class="row">
-					<h6>Taza de Interes:</h6>
-					<h6 id="taza">16%</h6>
+					<h6 class="h6">Taza de Interes:</h6>
+					<h6 id="taza"></h6>
 				</div>
 			</div>
 			<div class="col-sm">
 				<div class="row">
-					<h6>Monto del Prestamo Solicitado:</h6>
+					<h6 class="h6">Monto del Prestamo Solicitado:</h6>
 					<h6 id="monto"></h6>
 				</div>
 				<div class="row">
-					<h6>Monto Total a Pagar:</h6>
+					<h6 class="h6">Monto Total a Pagar:</h6>
 					<h6 id="total"></h6>
 				</div>
 			</div> 
@@ -59,10 +59,8 @@
 						<th scope="col">Capital Final</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>data</td>
-					</tr>
+				<tbody id="renglon">
+					
 				</tbody>
 			</table>
 			
@@ -90,7 +88,40 @@
 				success:function(response)
 				{
 					console.log(response);
+
+					$('#nombre').empty();
+					$('#cantidad').empty();
+					$('#tipo').empty();
+					$('#taza').empty();
+					$('#monto').empty();
+					$('#total').empty();
+					$('#renglon').empty();
+					$.each(response, function(i,r) {
+						
+						$('#nombre').empty();
+						$('#cantidad').empty();
+						$('#tipo').empty();
+						$('#taza').empty();
+						$('#monto').empty();
+						$('#total').empty();
+
+						$('#nombre').append(r.nom);
+						$('#cantidad').append(r.periodo);
+						$('#tipo').append(r.tipo);
+						$('#taza').append(r.interes+"%");
+						$('#monto').append(r.monto);
+						$('#total').append(r.monto);
+						
+
+					});
+					$.each(response, function(i, r) {
+						$('#renglon').append("<tr><td>"+r.pagos+"</td><td>"+r.fecha+"</td><td>"+r.cuota+"</td><td>"+r.interes+"</td><td>"+r.c_amortizacion+"</td><td>"+r.c_final+"</td></tr>");
+					});
+
+					
+					
 				}
+				
 			});
 		});
 	});
