@@ -30,7 +30,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="navDropClientes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="navDropClientes">
-							<a class="dropdown-item waves-effect waves-light" href="#">Área de cobranza</a>
+							<a class="dropdown-item waves-effect waves-light" href="{{url('/cobranza')}}">Área de cobranza</a>
 							<a class="dropdown-item waves-effect waves-light" href="{{url('/clientes')}}">Gestión de clientes</a>
 							<a class="dropdown-item waves-effect waves-light" href="{{url('/calprestamo')}}">Calcular Préstamo</a>
 						</div>
