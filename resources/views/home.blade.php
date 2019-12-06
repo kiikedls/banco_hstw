@@ -10,7 +10,7 @@
 	<div class="full-bg-img">
 		<div class="mask flex-center">
 			<div class="container text-center white-text wow fadeInUp">
-				<h2 class="display-1 font-weight-bold">Bienvenido al SWPC</h2>
+				<h2 class="display-1 font-weight-bold" id="welcomeText">Bienvenido al SWPC</h2>
 				<br>
 				<h5>Sistema web de préstamos y cobranza</h5>
 				En este sitio podrás desempeñarte como trabajador de <b>HSTW Banco</b> de forma más ágil y rápida

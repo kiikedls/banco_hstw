@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/cobranza', function () {
+    return view('cobranza');
+});
+
 Route::get('/login', function () {
 	return view('login');
 });
@@ -42,9 +46,7 @@ route::get('/prestamos',function (){
 });
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
-Route::get('/pdf',function (){
-    return view('viewpdf');
-});
+Route::post('/pdf','gestion@vistapdf');
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
 Route::get('/download','gestion@download');

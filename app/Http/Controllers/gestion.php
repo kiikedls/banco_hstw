@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Cliente  as  cliente;
 use App\Models\Direccion as direccion;
 use Dompdf\Dompdf;
+use Barryvdh\DomPDF\PDF as PDF;
+use Carbon\Carbon as carbon;
 
 class gestion extends Controller
 {
@@ -93,9 +95,26 @@ class gestion extends Controller
             $personas = cliente::all();
             return view('calprestamo')->with('personas', $personas);
     }
+    public function vistapdf(Request $request){
+        $fecha = carbon::now();
+        $numero = $request->ndp;
+        $interes = $request->interesc;
+        $años = $request->años;
+        $capital = $request->capitalr/($interes * $años);
+        $base =(1+$interes);
+        $exponente = $años;
+        $cuota = $request->capitalr/-(1-(pow($base,-$exponente))/$interes);
+        if ($request->tipop == 'Quincenal'){
+            $fechapago = $fecha->addDay(15)->format('d-m-20y');
+        }
+        elseif ($request->tipop == 'Mensual'){
+            $fechapago = $fecha->addMonth(1)->format('d-m-20y');
+        }
+        return view('viewpdf')->with('numero', $numero)->with('interes',$interes)->with('fecha',$fechapago)->with('capital',$capital)->with('cuota',$cuota);
+    }
     public function download()
     {
-        $html= view("viewpdf");
+        $html= view('viewpdf');
         $pdf = new Dompdf();
         $pdf->loadHtml($html);
         $pdf->render();
