@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `pagos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pagos` int(11) NOT NULL,
   `fecha` date NOT NULL,
+  `fecha_pago` date NULL,
   `cuota` int(11) NOT NULL,
   `interes` int(11) NOT NULL,
   `c_amortizacion` int(11) NOT NULL,
