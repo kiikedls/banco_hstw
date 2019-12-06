@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `pagos` (
 
 -- Volcando estructura para tabla hstw.prestamos
 CREATE TABLE IF NOT EXISTS `prestamos` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
   `periodo` int(11) NOT NULL,
   `tipo` varchar(15) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `prestamos` (
 
 -- Volcando estructura para tabla hstw.tarjetas
 CREATE TABLE IF NOT EXISTS `tarjetas` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `numero` text NOT NULL,
   `fecha_vencimiento` varchar(45) NOT NULL,
   `id_tipo` int(11) NOT NULL,
