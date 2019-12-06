@@ -12,30 +12,26 @@
 			<th scope="col">Fecha de nacimiento</th>
             <th scope="col">CURP</th>
             <th scope="col" hidden>RFC</th>
-			<th scope="col">Pagos atrasados</th>
-            <th scope="col">Total de pagos</th>
-            <th scope="col">T. de pagos c/i</th>
+			<th class="font-weight-bold peach-gradient" scope="col">Pagos atrasados</th>
+            <th scope="col">Cuota de pagos atr.</th>
 			<th scope="col">Detalles</th>
 		</tr>
 	</thead>
 	<tbody>
         @foreach ($clientes as $client)
-
-        @endforeach
-		<tr>
-			<th scope="row">{{$client->nom}}</th>
-			<td>{{ $client->apeP.' '.$client->apeM }}</td>
-			<td>{{ $client->f_nac }}</td>
-            <td>{{ $client->CURP }}</td>
-            <td hidden>{{ $client->rfc }}</td>
-			<td>{{ $client->pagos_atrasados()->count() }}</td>
-            <td>4224</td>
-            <td>5435</td>
+        <tr>
+			<th class="info-nom" scope="row">{{$client->nom}}</th>
+			<td class="info-ape">{{ $client->apeP.' '.$client->apeM }}</td>
+			<td class="info-nac">{{ $client->f_nac }}</td>
+            <td class="info-curp">{{ $client->CURP }}</td>
+            <td class="info-rfc" hidden>{{ $client->RFC }}</td>
+			<td class="font-weight-bold">{{ $client->pagos_atrasados()->count() }}</td>
+            <td>{{ $client->pagos_atrasados()->sum('cuota') }}</td>
 			<td>
-				<button class="btn btn-sm peach-gradient m-0 px-3 hoverable" data-toggle="modal"
-					data-target="#prestaModal">PAGOS ATRASADOS</button>
+				<button class="btn btn-sm peach-gradient m-0 px-3 hoverable" id="btn-atrasados">PAGOS ATRASADOS</button>
 			</td>
 		</tr>
+        @endforeach
 	</tbody>
 </table>
 
@@ -51,22 +47,22 @@
 			</div>
 			<div class="modal-body">
 				<h5>Datos del cliente</h5>
-				<div class="row">
+				<div class="row" id="info-client">
 					<div class="col-md-7">
-						<label class="font-weight-light small" for="info-cliente">Cliente</label>
-						<p id="info-cliente">Juan Angel Reyes Lira</p>
+						<label class="font-weight-light small" for="info-nom">Cliente</label>
+						<p id="info-nom"></p>
 					</div>
 					<div class="col-md-5">
 						<label class="font-weight-light small" for="info-nac">Nacimiento</label>
-						<p id="info-nac">24/06/1999</p>
+						<p id="info-nac"></p>
 					</div>
 					<div class="col-md-7">
 						<label class="font-weight-light small" for="info-curp">CURP</label>
-						<p id="info-curp">RELJ990624HCLYRN00</p>
+						<p id="info-curp"></p>
 					</div>
 					<div class="col-md-5">
 						<label class="font-weight-light small" for="info-rfc">RFC</label>
-						<p id="info-rfc">RELJ990624</p>
+						<p id="info-rfc"></p>
 					</div>
 				</div>
 
@@ -109,5 +105,22 @@
 @section('JS')
 <script type="text/javascript">
 	$('#cobranzaTable').DataTable();
+
+    $('#btn-atrasados').click(function () {
+        tr = $(this).closest('tr');
+        row = $('#info-client');
+
+        nom = tr.find('.info-nom').text() + ' ' + tr.find('.info-ape').text();
+        nac = tr.find('.info-nac').text();
+        curp = tr.find('.info-curp').text();
+        rfc = tr.find('.info-rfc').text();
+
+        row.find('#info-nom').text(nom);
+        row.find('#info-nac').text(nac);
+        row.find('#info-curp').text(curp);
+        row.find('#info-rfc').text(rfc);
+
+        $('#prestaModal').modal();
+    });
 </script>
 @endsection
