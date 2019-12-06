@@ -1,31 +1,36 @@
 @extends('layouts.interface')
 
 @section('content')
-<h1 class="text-primary mb-4">Área de cobranza</h1>
+<h1 class="text-primary">Área de cobranza</h1>
+<p class="font-italic mb-4">Información de clientes con pagos atrasados</p>
+
 <table class="table table-responsive-lg" id="cobranzaTable">
 	<thead class="blue-gradient white-text">
 		<tr>
 			<th scope="col">Nombre</th>
 			<th scope="col">Apellidos</th>
 			<th scope="col">Fecha de nacimiento</th>
-			<th scope="col">CURP</th>
-			<th scope="col">Prestamos a pagar</th>
-			<th scope="col">Total a pagar</th>
-			<th scope="col">Pagado</th>
-			<th scope="col">Por pagar</th>
+            <th scope="col">CURP</th>
+            <th scope="col" hidden>RFC</th>
+			<th scope="col">Pagos atrasados</th>
+            <th scope="col">Total de pagos</th>
+            <th scope="col">T. de pagos c/i</th>
 			<th scope="col">Detalles</th>
 		</tr>
 	</thead>
 	<tbody>
+        @foreach ($clientes as $client)
+
+        @endforeach
 		<tr>
-			<th scope="row">Juan Angel</th>
-			<td>Reyes Lira</td>
-			<td>24/06/1999</td>
-			<td>RELJ990624HCLYRN00</td>
-			<td>RELJ990624</td>
-			<td>4224</td>
-			<td>435</td>
-			<td>3898</td>
+			<th scope="row">{{$client->nom}}</th>
+			<td>{{ $client->apeP.' '.$client->apeM }}</td>
+			<td>{{ $client->f_nac }}</td>
+            <td>{{ $client->CURP }}</td>
+            <td hidden>{{ $client->rfc }}</td>
+			<td>{{ $client->pagos_atrasados()->count() }}</td>
+            <td>4224</td>
+            <td>5435</td>
 			<td>
 				<button class="btn btn-sm peach-gradient m-0 px-3 hoverable" data-toggle="modal"
 					data-target="#prestaModal">PAGOS ATRASADOS</button>
