@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/cobranza', function () {
-    return view('cobranza');
-});
+Route::get('/cobranza', 'CobranzaController@viewCobranza');
 
 Route::get('/login', function () {
 	return view('login');
