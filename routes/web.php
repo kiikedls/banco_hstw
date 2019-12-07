@@ -38,12 +38,13 @@ Route::get('/burodecredito', function () {
 
 
 
-route::get('/tarjetas',function (){
-    return view('tarjetas');
-});
+route::get('/tarjetas','CTarjeta@vista');
+route::post('/infotarjeta','CTarjeta@asigna');
+
 route::get('/prestamos',function (){
     return view('prestamo');
 });
+
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
 Route::post('/pdf','gestion@vistapdf');
