@@ -24,7 +24,7 @@
         </select>
         <input type="number" name="interesc" step="any" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Tasa de interes" min="0" pattern="^[0-9]+" required>
         <input  name="capitalr" type="number" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto Requerido" min="1" pattern="^[0-9]+" required>
-        <input type="number"  id="defaultContactFormEmail" class="form-control mb-4" placeholder="Monto a Pagar"  min="1" pattern="^[0-9]+" required>
+
         <button class="btn btn-info btn-block" type="submit">Calcular</button>
     </form>
 </center>

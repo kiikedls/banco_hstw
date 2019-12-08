@@ -50,6 +50,6 @@ Route::get('/editar','gestion@editar');
 Route::post('/pdf','gestion@vistapdf');
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
-Route::get('/download','gestion@download');
+Route::post('/download','gestion@download');
 Route::get('/calprestamo','gestion@calprestamo');
 Route::post('/agregar','gestion@agregar');

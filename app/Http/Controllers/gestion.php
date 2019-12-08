@@ -112,9 +112,14 @@ class gestion extends Controller
         }
         return view('viewpdf')->with('numero', $numero)->with('interes',$interes)->with('fecha',$fechapago)->with('capital',$capital)->with('cuota',$cuota);
     }
-    public function download()
+    public function download(Request $request)
     {
-        $html= view('viewpdf');
+        $numero = $request->input('numero');
+        $interes = $request->input('interes');
+        $fecha = $request->input('fecha');
+        $capital = $request->input('capital');
+        $cuota = $request->input('cuota');
+        $html= view('viewpdf')->with('numero',$numero)->with('fecha',$fecha)->with('interes',$interes)->with('capital',$capital)->with('cuota',$cuota);
         $pdf = new Dompdf();
         $pdf->loadHtml($html);
         $pdf->render();
