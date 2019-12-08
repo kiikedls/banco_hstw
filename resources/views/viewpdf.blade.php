@@ -22,21 +22,15 @@
         <th scope="col">Capital final</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody >
 
     <tr>
-
         <th scope="row">{{$numero}}</th>
         <th scope="row">{{$fecha}}</th>
         <th scope="row">{{$cuota}}</th>
         <th scope="row">{{$interes}}</th>
-        <th scope="row">{{$numero}}</th>
+        <th scope="row">{{$camortizada}}</th>
         <th scope="row">{{$capital}}</th>
-{{--        <td>{{$fecha}}</td>--}}
-{{--        <td>{{$cuota}}</td>--}}
-{{--        <td>{{$interes}}</td>--}}
-{{--        <td>dewwe</td>--}}
-{{--        <td>{{$capital}}</td>--}}
     </tr>
     </tbody>
 </table>
@@ -46,6 +40,7 @@
         <input type="text" name="fecha" value="{{$fecha}}" hidden>
         <input type="text" name="cuota" value="{{$cuota}}" hidden>
         <input type="text" name="interes" value="{{$interes}}" hidden>
+        <input type="text" name="camortizada" value="{{$camortizada}}" hidden>
         <input type="text" name="capital" value="{{$capital}}" hidden>
         <div class="text-center">
             <button type="submit" class="btn blue-gradient">Descargar</button>
