@@ -32,9 +32,7 @@ Route::get('/reporte', function (){
 
 Route::post('/buscar','UserController@buscar');
 
-Route::get('/burodecredito', function () {
-    return view('burodecredito');
-});
+Route::get('/burodecredito','BuroController@viewBuro');
 
 
 
