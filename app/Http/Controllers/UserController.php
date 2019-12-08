@@ -27,7 +27,7 @@ class UserController extends Controller
 		$userdb = Usuario::all();
 		$cantidad = $userdb->count();
 		if ($cantidad == 0) {
-			return view('login');
+			return redirect('/login');
 		}
 		for ($i=1; $i <= $cantidad; $i++) {
 			$registro = Usuario::where("id","=",$i)->first();
