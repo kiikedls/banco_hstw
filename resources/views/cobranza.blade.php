@@ -91,6 +91,8 @@
     modalBody = $('#modalBody');
 
     $('#btn-atrasados').click(function () {
+        $('.pagos-info').remove();
+
         tr = $(this).closest('tr');
         row = $('#info-client');
 
@@ -131,7 +133,7 @@
                         if (pago.prestamo_id == id) {
                             pagoDate = moment(pago.fecha);
 
-                            modalBody.append('<h6 class="mt-3">Prestamo '+id+'</h6>' +
+                            modalBody.append('<span class="pagos-info"><h6 class="mt-3">Prestamo '+id+'</h6>' +
                                 '<table class="table table-responsive-lg z-depth-1"><thead>' +
                                 '<th>Fecha límite</th>' +
                                 '<th>Días de atraso</th>' +
@@ -142,7 +144,7 @@
                                 '<th>' + today.diff(pagoDate, 'days') + '</th>' +
                                 '<th> $' + pago.cuota + '</th>' +
                                 '<th>' + pago.interes + '</th>' +
-                                '<th>Pendiente</th></tbody></table>');
+                                '<th>Pendiente</th></tbody></table></span>');
                         }
                     });
                 });
