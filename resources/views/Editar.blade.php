@@ -1,13 +1,8 @@
 @extends('layouts.interface')
 @section('CSS')
     <link rel="stylesheet" href="css/gestioncli.css">
-<!--
-Aquí linkearás el CSS generado por SASS
-<link rel="stylesheet" href="css/example.css"> -->
 @endsection
-
 @section('content')
-
     <h2 class="text-center">EDITAR</h2>
     <form method="POST" class="text-center  p-5" action="/actualizar">
         @csrf
@@ -89,24 +84,6 @@ Aquí linkearás el CSS generado por SASS
             <button id="pad" class="btn btn-info btn-block " type="submit">Confirmar</button>
         </center>
     </form>
-
-
-<!--
-Esta es la sección principal donde incluirás tu trabajo.
-
-El contenido esta por debajo del Navbar de la plantilla y
-esta dentro de un <div class="container-fluid mt-4" id="container">
--->
 @endsection
-
-
 @section('JS')
-<!--
-Puedes añadir código JavaScript y librerías.
-
-Tu código aquí no afectará el trabajo de los demás
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script type="text/javascript">
-</script>
--->
 @endsection

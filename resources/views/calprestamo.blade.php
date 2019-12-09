@@ -31,7 +31,7 @@
 @endsection
 @section('JS')
     <script>
-        var rand_NumeroAleatorio = Math.round(Math.random()*999999999999);
+        var rand_NumeroAleatorio = Math.round(Math.random()*999999);
         $('#indat').val(rand_NumeroAleatorio);
     </script>
 @endsection

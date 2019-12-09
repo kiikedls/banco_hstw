@@ -21,7 +21,7 @@ class Cliente extends Model
     }
 
     function creditos() {
-        return $this->hasMany(Credito::class);
+        return $this->hasMany(Credito::class, 'cliente_id');
     }
 
     function direcciones() {
@@ -29,11 +29,11 @@ class Cliente extends Model
     }
 
     function prestamos() {
-        return $this->hasMany(Prestamo::class);
+        return $this->hasMany(Prestamo::class,'cliente_id');
     }
 
     function tarjetas() {
-        return $this->hasMany(Tarjeta::class);
+        return $this->hasMany(Tarjeta::class, 'cliente_id');
     }
 
     function pagos_atrasados() {
