@@ -37,7 +37,8 @@ class Cliente extends Model
     }
 
     function pagos_atrasados() {
-        return $this->hasManyThrough(Pago::class, Prestamo::class)->whereColumn('pagos.fecha_pago', '>', 'pagos.fecha')->get();
+        return $this->hasManyThrough(Pago::class, Prestamo::class)
+            ->whereRaw('fecha < NOW()')
+            ->where('fecha_pago', null)->get();
     }
 }
-

@@ -7,7 +7,7 @@
 <table class="table table-responsive-lg" id="cobranzaTable">
 	<thead class="blue-gradient white-text">
 		<tr>
-            <th scope="col" hidden>id</th>
+			<th scope="col" hidden>id</th>
 			<th scope="col">Nombre</th>
 			<th scope="col">Apellidos</th>
 			<th scope="col">Fecha de nacimiento</th>
@@ -21,7 +21,7 @@
 	<tbody>
 		@foreach ($clientes as $client)
 		<tr>
-            <th class="info-id" hidden>{{$client->id}}</th>
+			<th class="info-id" hidden>{{$client->id}}</th>
 			<th class="info-nom" scope="row">{{$client->nom}}</th>
 			<td class="info-ape">{{ $client->apeP.' '.$client->apeM }}</td>
 			<td class="info-nac">{{ $client->f_nac }}</td>
@@ -81,6 +81,11 @@
 @endsection
 
 @section('JS')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+    integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"
+    integrity="sha256-bETP3ndSBCorObibq37vsT+l/vwScuAc9LRJIQyb068=" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
 	$('#cobranzaTable').DataTable();
     modalBody = $('#modalBody');
@@ -99,6 +104,8 @@
         row.find('#info-nac').text(nac);
         row.find('#info-curp').text(curp);
         row.find('#info-rfc').text(rfc);
+
+        today = moment();
 
         $.ajax({
 			url: '/pagos_atrasados',
@@ -122,16 +129,18 @@
                 $.each(prestamos_ids, function (i, id) {
                     $.each(response, function (i, pago) {
                         if (pago.prestamo_id == id) {
+                            pagoDate = moment(pago.fecha);
+
                             modalBody.append('<h6 class="mt-3">Prestamo '+id+'</h6>' +
                                 '<table class="table table-responsive-lg z-depth-1"><thead>' +
                                 '<th>Fecha límite</th>' +
-                                '<th>Fecha de pago</th>' +
+                                '<th>Días de atraso</th>' +
                                 '<th>Cuota</th>' +
                                 '<th>Interés</th>' +
                                 '<th>Total c/i</th></thead><tbody>' +
                                 '<th>' + pago.fecha + '</th>' +
-                                '<th>' + pago.fecha_pago + '</th>' +
-                                '<th>' + pago.cuota + '</th>' +
+                                '<th>' + today.diff(pagoDate, 'days') + '</th>' +
+                                '<th> $' + pago.cuota + '</th>' +
                                 '<th>' + pago.interes + '</th>' +
                                 '<th>Pendiente</th></tbody></table>');
                         }
