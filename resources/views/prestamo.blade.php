@@ -22,27 +22,47 @@ Aquí linkearás el CSS generado por SASS
         <div class="card-body px-lg-5 pt-0 row">
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="/verburo" method="post">
+            <form class="text-center col" id="presta1" style="color: #757575;" action="/presta" method="post">
                 @csrf
 
                 <!-- numero de cliente -->
                 <div class="md-form mt-3">
-                    <input type="text" name="Num" id="Num" class="form-control">
+                    <input type="text" name="Num" id="Num" class="form-control" required>
                     <label for="Num">No. cliente</label>
                 </div>
 
                 <!-- RFC -->
                 <div class="md-form">
-                    <input type="text" name="RFC" id="RFC" class="form-control">
+                    <input type="text" name="RFC" id="RFC" class="form-control" required>
                     <label for="RFC">RFC</label>
                 </div>
                 <!-- CURP -->
                 <div class="md-form">
-                    <input type="text" name="CURP" id="CURP" class="form-control">
+                    <input type="text" name="CURP" id="CURP" class="form-control" required>
                     <label for="CURP">CURP</label>
                 </div>
-                <!-- select -->
 
+                <!-- concepto -->
+                <div class="md-form">
+                    <input type="text" name="concepto" id="concepto" class="form-control" required>
+                    <label for="concepto">concepto</label>
+                </div>
+                <!-- periodo -->
+                <div class="md-form">
+                    <input type="text" name="periodo" id="periodo" class="form-control" required>
+                    <label for="periodo">periodo</label>
+                </div>
+                    <!-- Subject -->
+                    <select name="tipp" class="browser-default custom-select" required>
+                        <option selected>Tipo prestamo</option>
+                        <option value="quincenal">Quincenal</option>
+                        <option value="mensual">Mensual</option>
+                    </select>
+                    <!-- Monto -->
+                    <div class="md-form">
+                        <input type="text" name="monto" id="monto" class="form-control" required>
+                        <label for="monto">monto</label>
+                    </div>
                 <button id="verifica" type="button" class="btn btn-outline-success btn-md waves-effect">verificar vuro</button>
                 <!-- Send button -->
                 <button id="sen1" class="btn blue-gradient btn-block z-depth-0 my-4 waves-effect" type="submit">Asignar</button>
@@ -51,7 +71,7 @@ Aquí linkearás el CSS generado por SASS
             <!-- Form -->
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="#!" method="post">
+            <form class="text-center col" style="color: #757575;" action="!#" method="post">
                 @csrf
 
                 <!-- Name -->
