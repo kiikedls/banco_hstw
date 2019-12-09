@@ -31,8 +31,8 @@ class UserController extends Controller
 		}
 		for ($i=1; $i <= $cantidad; $i++) {
 			$registro = Usuario::where("id","=",$i)->first();
-			if ($registro->user == $usuario and $registro->pass == $password) {
-				return view('home');
+			if ($registro->user == $usuario and $registro->password == $password) {
+				return redirect('/');
 			}
 			else
 			{
