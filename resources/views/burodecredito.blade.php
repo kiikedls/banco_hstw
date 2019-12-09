@@ -22,27 +22,25 @@
           </th>
         </tr>
       </thead>
-      <tbody>
-
-            @foreach($registros as $reg)
-                {{$reg}}
-
+      <tbody>  
+{{ $registros}}
+            @foreach($usuarios as $reg)
                 <tr>
                   <td class="text-center"> {{$reg->id}} </td>
                   <td class="text-center"> {{$reg->nom.' '.$reg->apeP.' '.$reg->apeM}} </td>
                   <td class="text-center"> {{$reg->f_nac}} </td>
-                  <td class="text-center"> 2011/04/25</td>
                   <td class="text-center">
-                  @if ($reg->id == 1)
-                  <i class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos'></i>
-                  @endif
-                  @if ($reg->id == 2)
-                  <i class="fas fa-exclamation-circle fa-lg text-warning" data-toggle="popover-hover" data-content='Pagando'></i>
-                  @endif
-                  @if ($reg->id == 3)
-                    <i class="fas fa-exclamation-triangle fa-lg text-danger" data-toggle="popover-hover" data-content='En Buro'></i>
-                  @endif
+                    @if(count($registros == $reg->RFC) > 1)
+                    SAD
+                    @endif
+
+
+                      0000-00-00
                   </td>
+                  <td class="text-center">
+                          <i class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos'></i>
+                  </td>
+
                 </tr>
             @endforeach
       </tbody>
