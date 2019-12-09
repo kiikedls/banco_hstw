@@ -130,10 +130,9 @@
                                 '<th>Interés</th>' +
                                 '<th>Total c/i</th></thead><tbody>' +
                                 '<th>' + pago.fecha + '</th>' +
-                                '<th>' + pago.fecha + '</th>' +
                                 '<th>' + pago.fecha_pago + '</th>' +
                                 '<th>' + pago.cuota + '</th>' +
-                                '<th>' + pago.interes + '%</th>' +
+                                '<th>' + pago.interes + '</th>' +
                                 '<th>Pendiente</th></tbody></table>');
                         }
                     });
