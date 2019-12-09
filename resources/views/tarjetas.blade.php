@@ -31,7 +31,7 @@ Aquí linkearás el CSS generado por SASS
         <div class="card-body px-lg-5 pt-0 row">
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="/infotarjeta" method="post">
+            <form class="text-center col" style="color: #757575;" action="/infotarjeta1" method="post">
                 @csrf
                 <select name="tipt" class="browser-default custom-select" required>
                     <option selected>Tipo tarjeta</option>
@@ -46,13 +46,13 @@ Aquí linkearás el CSS generado por SASS
 
                 <!-- RFC -->
                 <div class="md-form">
-                    <input type="text" name="rfc" id="materialContactFormrfc" class="form-control" required>
-                    <label for="materialContactFormrfc">RFC</label>
+                    <input type="text" name="rfc" id="rfc" class="form-control" required>
+                    <label for="rfc">RFC</label>
                 </div>
                 <!-- CURP -->
                 <div class="md-form">
                     <input type="text" name="curp" id="materialContactForcurp" class="form-control" required>
-                    <label for="materialContactFormcurp">CURP</label>
+                    <label for="curp">CURP</label>
                 </div>
                 <!-- select -->
 
@@ -63,7 +63,7 @@ Aquí linkearás el CSS generado por SASS
             <!-- Form -->
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="/infotarjeta">
+            <form class="text-center col" style="color: #757575;" action="/infotarjeta2">
                 <select  class="browser-default custom-select" required>
                     <option selected>Tipo tarjeta</option>
                     {{--                    <option value="1">Crédito</option>--}}
@@ -74,7 +74,7 @@ Aquí linkearás el CSS generado por SASS
                 <!-- Name -->
                 <div class="md-form mt-3">
                     <input type="text" name="nom" id="materialContactFormName" class="form-control" required>
-                    <label for="materialContactFormName">Nombre completo</label>
+                    <label for="nom">Nombre completo</label>
                 </div>
 
                 <!-- fecha de nacimiento -->

@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente  as  cliente;
 use App\Models\Direccion as direccion;
+use App\Models\Tarjeta as tarjeta;
+use App\Models\Prestamo as prestamo;
+use App\Models\Credito as credito;
+use App\Models\Pago as pago;
 use Dompdf\Dompdf;
 use Barryvdh\DomPDF\PDF as PDF;
 use Carbon\Carbon as carbon;
+
 
 class gestion extends Controller
 {
@@ -82,14 +87,40 @@ class gestion extends Controller
             return redirect('/clientes');
     }
     public function eliminar(Request $request){
-         $cliente = cliente::find($request->del_idc);
-         $direccion = direccion::find($request->del_idd);
-         $cliente->direcciones()->detach();
-         $cliente->save();
-         $direccion->save();
-         $cliente->delete();
-         $direccion->delete();
-         return back();
+        $cliente = cliente::find($request->del_idc);
+        $direccion = direccion::find($request->del_idd);
+        $prestamo = prestamo::all()->where('cliente_id', '=', $request->del_idc);
+        $tarjeta = tarjeta::all()->where('cliente_id', '=',$request->del_idc);
+        $credito = credito::all()->where('cliente_id', '=',$request->del_idc);
+
+        foreach ($tarjeta as $tarjet){
+            $tarj = tarjeta::find($tarjet->id);
+            $tarj->save();
+            $tarj->delete();
+        }
+        foreach ($credito as $credit){
+
+            $credi = credito::find($credit->id);
+            $credi->save();
+            $credi->delete();
+        }
+        foreach($prestamo as $pre){
+            $pagos = pago::all()->where('prestamo_id','=',$pre->id);
+            foreach ($pagos as $pag){
+                $pago = pago::find($pag->id);
+                $pago->save();
+                $pago->delete();
+            }
+            $pres = prestamo::find($pre->id);
+            $pres->save();
+            $pres->delete();
+        }
+        $cliente->direcciones()->detach();
+        $cliente->save();
+        $direccion->save();
+        $direccion->delete();
+        $cliente->delete();
+        return back();
     }
     public function calprestamo(){
             $personas = cliente::all();

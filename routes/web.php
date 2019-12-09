@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('login');
 
 Route::get('/cobranza', 'CobranzaController@viewCobranza');
 
@@ -37,11 +37,13 @@ Route::get('/burodecredito','BuroController@viewBuro');
 
 
 route::get('/tarjetas','CTarjeta@vista');
-route::post('/infotarjeta','CTarjeta@asigna');
+route::post('/infotarjeta1','CTarjeta@asigna1');
+route::post('/infotarjeta2','CTarjeta@asigna2');
 
 route::get('/prestamos',function (){
     return view('prestamo');
 });
+route::post('/verburo','Cprestamo@verifica_buro');
 
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
