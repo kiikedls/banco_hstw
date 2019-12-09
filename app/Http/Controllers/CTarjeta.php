@@ -11,7 +11,12 @@ use Carbon\Carbon as cabron;
 
 class CTarjeta extends Controller
 {
-    function asigna(Request $r){
+    function vista(){
+        $tp=Tipo::all();
+//        dd($tp);
+        return view('tarjetas')->with('tp',$tp);
+    }
+    function asigna1(Request $r){
         $x=$r->get("tipt");
         $fecha=cabron::now();
         $fech_v=$fecha->addYear(4)->format("20y-m-d");
@@ -30,9 +35,7 @@ class CTarjeta extends Controller
 //        dd($x);
         return back();
     }
-    function vista(){
-        $tp=Tipo::all();
-//        dd($tp);
-        return view('tarjetas')->with('tp',$tp);
+    function asigna2(Request $r){
+        dd($r);
     }
 }

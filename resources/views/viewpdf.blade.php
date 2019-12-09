@@ -22,21 +22,30 @@
         <th scope="col">Capital final</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
+    <tbody >
 
+    <tr>
         <th scope="row">{{$numero}}</th>
-        <td>{{$fecha}}</td>
-        <td>{{$cuota}}</td>
-        <td>{{$interes}}</td>
-        <td>dewwe</td>
-        <td>{{$capital}}</td>
+        <th scope="row">{{$fecha}}</th>
+        <th scope="row">{{$cuota}}</th>
+        <th scope="row">{{$interes}}</th>
+        <th scope="row">{{$camortizada}}</th>
+        <th scope="row">{{$capital}}</th>
     </tr>
     </tbody>
 </table>
-<div class="text-center">
-    <a href="/download" class="btn blue-gradient">Descargar</a>
-</div>
+    <form  method="POST"  action="/download">
+        @csrf
+        <input type="text" name="numero"  value="{{$numero}}" hidden>
+        <input type="text" name="fecha" value="{{$fecha}}" hidden>
+        <input type="text" name="cuota" value="{{$cuota}}" hidden>
+        <input type="text" name="interes" value="{{$interes}}" hidden>
+        <input type="text" name="camortizada" value="{{$camortizada}}" hidden>
+        <input type="text" name="capital" value="{{$capital}}" hidden>
+        <div class="text-center">
+            <button type="submit" class="btn blue-gradient">Descargar</button>
+        </div>
+    </form>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/mdb.min.js"></script>

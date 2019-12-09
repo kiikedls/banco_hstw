@@ -32,24 +32,24 @@ Route::get('/reporte', function (){
 
 Route::post('/buscar','UserController@buscar');
 
-Route::get('/burodecredito', function () {
-    return view('burodecredito');
-});
+Route::get('/burodecredito','BuroController@viewBuro');
 
 
 
 route::get('/tarjetas','CTarjeta@vista');
-route::post('/infotarjeta','CTarjeta@asigna');
+route::post('/infotarjeta1','CTarjeta@asigna1');
+route::post('/infotarjeta2','CTarjeta@asigna2');
 
 route::get('/prestamos',function (){
     return view('prestamo');
 });
+route::post('/verburo','Cprestamo@verifica_buro');
 
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');
 Route::post('/pdf','gestion@vistapdf');
 Route::post('/actualizar','gestion@actualizar');
 Route::get('/eliminar','gestion@eliminar');
-Route::get('/download','gestion@download');
+Route::post('/download','gestion@download');
 Route::get('/calprestamo','gestion@calprestamo');
 Route::post('/agregar','gestion@agregar');

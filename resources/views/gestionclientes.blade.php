@@ -22,71 +22,71 @@
                                     @csrf
                                     <h3 class="text-left mb-5 md-form">Datos Personales</h3>
                                     <div class="md-form mb-5">
-                                        <input type="text" name="nom" id="inputName15" class="form-control validate" >
-                                        <label data-error="wrong" data-success="right" for="inputName15">Nombre</label>
+                                        <input type="text" name="nom" id="inputName15" class="form-control validate" required>
+                                        <label data-error=" " data-success="" for="inputName15">Nombre</label>
                                     </div>
                                     <div class="form-row md-form mb-5">
                                         <div class="col">
-                                            <input type="text" name="apeP" id="inputPosition15" class="form-control validate">
-                                            <label data-error="wrong" data-success="right" for="inputPosition15">Apellido Paterno</label>
+                                            <input type="text" name="apeP" id="inputPosition15" class="form-control validate" required>
+                                            <label data-error="" data-success="" for="inputPosition15">Apellido Paterno</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" name="apeM" id="inputPosition18" class="form-control validate">
-                                            <label data-error="wrong" data-success="right" for="inputPosition18">Apellido Materno</label>
+                                            <input type="text" name="apeM" id="inputPosition18" class="form-control validate" required>
+                                            <label data-error="" data-success="" for="inputPosition18">Apellido Materno</label>
                                         </div>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="date" id="inputDate15" name="f_nac" class="form-control" placeholder="Select Date">
-                                        <label data-error="wrong" data-success="right" for="inputDate15">Fecha de Nacimiento</label>
+                                        <input type="date" id="inputDate15" name="f_nac" class="form-control" placeholder="Select Date" required>
+                                        <label data-error="" data-success="" for="inputDate15">Fecha de Nacimiento</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputOfficeInput15" name="CURP" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputOfficeInput15">CURP</label>
+                                        <input type="text" id="inputOfficeInput15" name="CURP" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputOfficeInput15">CURP</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputAge15" name="RFC" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputAge15">RFC</label>
+                                        <input type="text" id="inputAge15" name="RFC" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputAge15">RFC</label>
                                     </div>
                                     <h3 class="text-left mb-5 md-form">Dirección</h3>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputDir12" name="calle" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputDir12">Calle</label>
+                                        <input type="text" id="inputDir12" name="calle" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputDir12">Calle</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputcOL" name="colonia" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputcOL">Colonía</label>
+                                        <input type="text" id="inputcOL" name="colonia" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputcOL">Colonía</label>
                                     </div>
                                     <div class="form-row md-form mb-4">
                                         <div class="col">
-                                            <input type="text" id="inputNint" name="num_int" class="form-control validate">
-                                            <label data-error="wrong" data-success="right" for="inputNint">Número Interior</label>
+                                            <input type="text" id="inputNint" name="num_int" class="form-control validate" required>
+                                            <label data-error="" data-success="" for="inputNint">Número Interior</label>
                                         </div>
                                         <div class="col">
-                                            <input type="text" id="inputNext" name="num_ext" class="form-control validate">
-                                            <label data-error="wrong" data-success="right" for="inputNext">Número Exterior</label>
+                                            <input type="text" id="inputNext" name="num_ext" class="form-control validate" required>
+                                            <label data-error="" data-success="" for="inputNext">Número Exterior</label>
                                         </div>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputcalles" name="calles" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputcalles">Calles</label>
+                                        <input type="text" id="inputcalles" name="calles" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputcalles">Calles</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputcp" name="cp" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputcp">Código Postal</label>
+                                        <input type="text" id="inputcp" name="cp" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputcp">Código Postal</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputciudad" name="ciudad" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputciudad">Ciudad </label>
+                                        <input type="text" id="inputciudad" name="ciudad" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputciudad">Ciudad </label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputestado" name="estado" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputestado">Estado</label>
+                                        <input type="text" id="inputestado" name="estado" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputestado">Estado</label>
                                     </div>
                                     <div class="md-form mb-5">
-                                        <input type="text" id="inputpais" name="pais" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputpais">País</label>
+                                        <input type="text" id="inputpais" name="pais" class="form-control validate" required>
+                                        <label data-error="" data-success="" for="inputpais">País</label>
                                     </div>
-                                    <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
+                                    <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper" >
                                         <button class="btn blue-gradient btn-block " type="submit" >Confirmar
                                             <i class="far fa-paper-plane ml-1"></i>
                                         </button>

@@ -98,23 +98,31 @@ class gestion extends Controller
     public function vistapdf(Request $request){
         $fecha = carbon::now();
         $numero = $request->ndp;
-        $interes = $request->interesc;
+        $interes = ($request->interesc)/100;
         $años = $request->años;
-        $capital = $request->capitalr/($interes * $años);
-        $base =(1+$interes);
-        $exponente = $años;
-        $cuota = $request->capitalr/-(1-(pow($base,-$exponente))/$interes);
+        $capital = $request->capitalr;
+        $cuota = $capital*(($interes*pow((1+$interes),$años))/(pow((1+$interes),$años)-1));
+        $capitalfinal = $capital*(pow((1+$interes),$años));
+//        $camortizada = $capitalfinal-$cuota-$interes;
         if ($request->tipop == 'Quincenal'){
             $fechapago = $fecha->addDay(15)->format('d-m-20y');
+            $camortizada = $capital/15;
         }
         elseif ($request->tipop == 'Mensual'){
             $fechapago = $fecha->addMonth(1)->format('d-m-20y');
+            $camortizada = $capital/30;
         }
-        return view('viewpdf')->with('numero', $numero)->with('interes',$interes)->with('fecha',$fechapago)->with('capital',$capital)->with('cuota',$cuota);
+        return view('viewpdf')->with('numero', $numero)->with('interes',$interes)->with('fecha',$fechapago)->with('capital',$capitalfinal)->with('cuota',$cuota)->with('camortizada',$camortizada);
     }
-    public function download()
+    public function download(Request $request)
     {
-        $html= view('viewpdf');
+        $numero = $request->input('numero');
+        $interes = $request->input('interes');
+        $fecha = $request->input('fecha');
+        $camortizada = $request->input('camortizada');
+        $capital = $request->input('capital');
+        $cuota = $request->input('cuota');
+        $html= view('viewpdf')->with('numero',$numero)->with('fecha',$fecha)->with('interes',$interes)->with('capital',$capital)->with('cuota',$cuota)->with('camortizada',$camortizada);
         $pdf = new Dompdf();
         $pdf->loadHtml($html);
         $pdf->render();
