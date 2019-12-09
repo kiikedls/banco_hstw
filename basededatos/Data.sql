@@ -27,7 +27,7 @@ insert into pagos values (1,20,'2019-05-22','2019-05-20',1000,5,0,40000,1);
 insert into pagos values (2,20,'2019-05-22','2019-05-22',1500,4,0,60000,2);
 insert into pagos values (3,20,'2019-05-22','2019-05-12',2500,6,0,120000,3);
 insert into pagos values (4,20,'2019-05-22', NULL,3000,7,0,150000,4);
-insert into pagos values (5,20,'2019-05-22', NULL, 3500,8,0,180000,5);
+insert into pagos values (5,20,'2019-11-22', NULL, 3500,8,0,180000,5);
 --  tipo tarjeta
 insert into tipo_tarjeta values (1,'Credito');
 insert into tipo_tarjeta values (2,'Debito');

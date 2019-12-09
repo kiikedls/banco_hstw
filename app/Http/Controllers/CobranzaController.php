@@ -10,11 +10,7 @@ class CobranzaController extends Controller
 {
     function viewCobranza() {
         # Clientes con pagos retrasados
-        $clientes = Cliente::whereHas('prestamos', function (Builder $query) {
-            $query->whereHas('pago', function (Builder $query) {
-                $query->whereColumn('fecha_pago', '>', 'fecha');
-            });
-        })->get();
+        $clientes = Cliente::whereHas('pagos_atrasados')->get();
 
         return view('cobranza', compact('clientes'));
     }
@@ -24,6 +20,7 @@ class CobranzaController extends Controller
 
         $client = Cliente::find($client_id);
 
-        return $client->pagos_atrasados()->sortByDesc('prestamo_id')->toJson();
+        return $client->pagos_atrasados()->get()
+            ->sortByDesc('prestamo_id')->toJson();
     }
 }

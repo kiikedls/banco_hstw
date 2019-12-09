@@ -30,7 +30,7 @@
 			<td class="font-weight-bold">{{ $client->pagos_atrasados()->count() }}</td>
 			<td>{{ $client->pagos_atrasados()->sum('cuota') }}</td>
 			<td>
-				<button class="btn btn-sm peach-gradient m-0 px-3 hoverable" id="btn-atrasados">PAGOS ATRASADOS</button>
+				<button class="btn btn-sm peach-gradient m-0 px-3 hoverable btn-atrasados">PAGOS ATRASADOS</button>
 			</td>
 		</tr>
 		@endforeach
@@ -90,7 +90,7 @@
 	$('#cobranzaTable').DataTable();
     modalBody = $('#modalBody');
 
-    $('#btn-atrasados').click(function () {
+    $('.btn-atrasados').click(function () {
         $('.pagos-info').remove();
 
         tr = $(this).closest('tr');

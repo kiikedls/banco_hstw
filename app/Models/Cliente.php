@@ -36,9 +36,12 @@ class Cliente extends Model
         return $this->hasMany(Tarjeta::class, 'cliente_id');
     }
 
+    function pagos() {
+        return $this->hasManyThrough(Pago::class, Prestamo::class);
+    }
+
     function pagos_atrasados() {
-        return $this->hasManyThrough(Pago::class, Prestamo::class)
-            ->whereRaw('fecha < NOW()')
-            ->where('fecha_pago', null)->get();
+        return $this->pagos()->whereRaw('fecha < NOW()')
+            ->where('fecha_pago', null);
     }
 }
