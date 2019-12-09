@@ -4,7 +4,7 @@
 <h1 class="text-primary">Área de cobranza</h1>
 <p class="font-italic mb-4">Información de clientes con pagos atrasados</p>
 
-<table class="table table-responsive-lg" id="cobranzaTable">
+<table class="table" id="cobranzaTable">
 	<thead class="blue-gradient white-text">
 		<tr>
 			<th scope="col" hidden>id</th>
@@ -39,7 +39,7 @@
 
 <!-- Prestamos -->
 <div class="modal fade" id="prestaModal" tabindex="-1" role="dialog" aria-labelledby="prestaModal" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header peach-gradient white-text">
 				<h5 class="modal-title" id="exampleModalLabel">Pagos atrasados</h5>
@@ -134,17 +134,13 @@
                             pagoDate = moment(pago.fecha);
 
                             modalBody.append('<span class="pagos-info"><h6 class="mt-3">Prestamo '+id+'</h6>' +
-                                '<table class="table table-responsive-lg z-depth-1"><thead>' +
+                                '<table class="table z-depth-1"><thead>' +
                                 '<th>Fecha límite</th>' +
                                 '<th>Días de atraso</th>' +
-                                '<th>Cuota</th>' +
-                                '<th>Interés</th>' +
-                                '<th>Total c/i</th></thead><tbody>' +
+                                '<th>Cuota</th></thead><tbody>' +
                                 '<th>' + pago.fecha + '</th>' +
                                 '<th>' + today.diff(pagoDate, 'days') + '</th>' +
-                                '<th> $' + pago.cuota + '</th>' +
-                                '<th>' + pago.interes + '</th>' +
-                                '<th>Pendiente</th></tbody></table></span>');
+                                '<th> $' + pago.cuota + '</th></tbody></table></span>');
                         }
                     });
                 });
