@@ -22,23 +22,24 @@ Aquí linkearás el CSS generado por SASS
         <div class="card-body px-lg-5 pt-0 row">
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="#!">
+            <form class="text-center col" style="color: #757575;" action="/verburo" method="post">
+                @csrf
 
                 <!-- numero de cliente -->
                 <div class="md-form mt-3">
-                    <input type="text" id="materialContactFormName" class="form-control">
-                    <label for="materialContactFormName">No. cliente</label>
+                    <input type="text" name="Num" id="Num" class="form-control">
+                    <label for="Num">No. cliente</label>
                 </div>
 
                 <!-- RFC -->
                 <div class="md-form">
-                    <input type="email" id="materialContactFormEmail" class="form-control">
-                    <label for="materialContactFormEmail">RFC</label>
+                    <input type="text" name="RFC" id="RFC" class="form-control">
+                    <label for="RFC">RFC</label>
                 </div>
                 <!-- CURP -->
                 <div class="md-form">
-                    <input type="email" id="materialContactFormEmail" class="form-control">
-                    <label for="materialContactFormEmail">CURP</label>
+                    <input type="text" name="CURP" id="CURP" class="form-control">
+                    <label for="CURP">CURP</label>
                 </div>
                 <!-- select -->
 
@@ -50,12 +51,13 @@ Aquí linkearás el CSS generado por SASS
             <!-- Form -->
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="#!">
+            <form class="text-center col" style="color: #757575;" action="#!" method="post">
+                @csrf
 
                 <!-- Name -->
                 <div class="md-form mt-3">
-                    <input type="text" id="materialContactFormName" class="form-control">
-                    <label for="materialContactFormName">Nombre completo</label>
+                    <input type="text" name="Name" id="Name" class="form-control">
+                    <label for="Name">Nombre completo</label>
                 </div>
 
                 <!-- fecha de nacimiento -->
@@ -67,8 +69,28 @@ Aquí linkearás el CSS generado por SASS
 
             </form>
             <!-- Form -->
-        </div>
+        {{--</div>
+        <div id="element" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="..." class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>--}}
+{{--        <div id="notificacion" class="col-md-3"></div>--}}
+
     </div>
+        <div id="notificacion" class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <!-- Material form contact -->
 @endsection
 
@@ -82,4 +104,42 @@ Tu código aquí no afectará el trabajo de los demás
 <script type="text/javascript">
 </script>
 -->
+    <script>
+        $('#element').toast('show');
+        $(document).ready(function () {
+            $("#verifica").click(function () {
+                var idcli=$("#Num").val();
+                var _token='{{csrf_token()}}';
+                // div_msj.empty();
+                $("#notificacion").empty();
+
+                $.ajax({
+                    url:'/verburo',
+                    data:{idcli,_token},
+                    type:'POST',
+                    dataType:'json',
+                    error:function (response) {
+                        console.log(response);
+                    },
+                    success:function (response) {
+                        // alert(response.msj);
+                        // var mss;
+                        // if (response.reg) {
+                        //     // $("#notificacion").html(response.msj);
+                        //     mss='<div class="alert alert-warning alert-dismissible fade show" role="alert">'+response.msj+
+                        //     '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>';
+                        // }
+                        // else {
+                        //     mss="<div class='alert alert-success' role='alert'>"
+                        //         +response.msj+"</div>"
+                        // }
+                        // $("#notificacion").html(response.msj);
+                        $("#notificacion").append(response.msj);
+                        // console.log(response);
+                    }
+                });
+            });
+            // var $route=""
+        });
+    </script>
 @endsection
