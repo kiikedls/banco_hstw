@@ -56,7 +56,7 @@
 							Pasillas
 						</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="userDropdown">
-							<a class="dropdown-item waves-effect waves-light" href="#">Cerrar sesión</a>
+							<a class="dropdown-item waves-effect waves-light" href="/cerrar">Cerrar sesión</a>
 						</div>
 					</li>
 				</ul>
