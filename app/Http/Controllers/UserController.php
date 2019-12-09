@@ -32,19 +32,18 @@ class UserController extends Controller
 		for ($i=1; $i <= $cantidad; $i++) {
 			$registro = Usuario::where("id","=",$i)->first();
 			if ($registro->user == $usuario and $registro->password == $password) {
+                Session::put('user', $registro);
 				return redirect('/');
 			}
-			else
-			{
-				return redirect('/login');
-			}
+			else return redirect('/login');
 		}
-		
+
 	}
 
 	function cerrarsesion()
 	{
-		return view('login');
+        Session::flush();
+		return redirect('/login');
 	}
 	function buscar(Request $r)
 	{
@@ -59,5 +58,5 @@ class UserController extends Controller
 
 		return $resultado;
 	}
-	
+
 }

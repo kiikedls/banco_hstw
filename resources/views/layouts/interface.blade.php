@@ -53,7 +53,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle waves-effect waves-light" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<i class="fas fa-user mr-1"></i>
-							Pasillas
+							{{Session::get('user')->user}}
 						</a>
 						<div class="dropdown-menu dropdown-menu-right shadow animated fadeIn" aria-labelledby="userDropdown">
 							<a class="dropdown-item waves-effect waves-light" href="/cerrar">Cerrar sesión</a>
