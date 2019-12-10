@@ -40,8 +40,8 @@ Aquí linkearás el CSS generado por SASS
                 </select>
                 <!-- numero de cliente -->
                 <div class="md-form mt-3">
-                    <input type="text" name="nocli" id="materialContactFormName" class="form-control" required>
-                    <label for="materialContactFormName">No. cliente</label>
+                    <input type="text" name="nocli" id="nocli" class="form-control" required>
+                    <label for="nocli">No. cliente</label>
                 </div>
 
                 <!-- RFC -->
@@ -51,7 +51,7 @@ Aquí linkearás el CSS generado por SASS
                 </div>
                 <!-- CURP -->
                 <div class="md-form">
-                    <input type="text" name="curp" id="materialContactForcurp" class="form-control" required>
+                    <input type="text" name="curp" id="curp" class="form-control" required>
                     <label for="curp">CURP</label>
                 </div>
                 <!-- select -->
@@ -63,18 +63,35 @@ Aquí linkearás el CSS generado por SASS
             <!-- Form -->
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="/infotarjeta2">
-                <select  class="browser-default custom-select" required>
+            <form class="text-center col" style="color: #757575;" action="/infotarjeta2" method="post">
+                @csrf
+                <select name="tipt2" class="browser-default custom-select" required>
                     <option selected>Tipo tarjeta</option>
-                    {{--                    <option value="1">Crédito</option>--}}
-                    {{--                    <option value="2">Debito</option>--}}
                     <option value="{{$tp[0]->id}}">{{$tp[0]->tipo}}</option>
                     <option value="{{$tp[0]->id}}">{{$tp[1]->tipo}}</option>
                 </select>
-                <!-- Name -->
-                <div class="md-form mt-3">
-                    <input type="text" name="nom" id="materialContactFormName" class="form-control" required>
-                    <label for="nom">Nombre completo</label>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- Name -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="Name" id="Name" class="form-control" required>
+                            <label for="Name">Nombre completo</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- APaterno -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="apat" id="apat" class="form-control" required>
+                            <label for="apat">Apellido Paterno</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- AMaterno -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="amat" id="amat" class="form-control" required>
+                            <label for="amat">Apellido Materno</label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- fecha de nacimiento -->

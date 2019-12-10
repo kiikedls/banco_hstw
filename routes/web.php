@@ -44,6 +44,9 @@ route::get('/prestamos',function (){
     return view('prestamo');
 });
 route::post('/verburo','Cprestamo@verifica_buro');
+route::post('/verburo2','Cprestamo@verifica_buro2');
+route::post('/presta','Cprestamo@prestar');
+route::post('/presta2','Cprestamo@prestados');
 
 Route::get('/clientes','gestion@vista');
 Route::get('/editar','gestion@editar');

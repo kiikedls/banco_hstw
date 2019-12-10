@@ -15,15 +15,49 @@ class Cprestamo extends Controller
         $estatus=Buro::all()->where('info_adeudor','=',$id[0]->RFC);
 //        return $estatus[0]->calificacion_cliente;
         if ($estatus[0]->calificacion_cliente!=3){
-//            $registro=new Presta();
-//            $registro->id=1;
-//            $registro->nombre="tupu";
-//            $registro->periodo=11;
             return collect(['msj'=>"prestamo aceptado"]);
         }
         else{
             return collect(['msj'=>"prestamo negado"]);
         }
 //        dd($estatus);
+    }
+    function verifica_buro2(Request $r){
+        $id=Cliente::all()->where('nom','=',$r->cli);
+//        $id=Cliente::all()->where('id','=',$r->idcli);
+        $estatus=Buro::all()->where('info_adeudor','=',$id[1]->RFC);
+//        return $estatus[0]->calificacion_cliente;
+        if ($estatus[1]->calificacion_cliente!=3){
+            return collect(['msj'=>"prestamo aceptado"]);
+        }
+        else{
+            return collect(['msj'=>"prestamo negado"]);
+        }
+//        dd($estatus);
+//        return $estatus;
+    }
+    function prestar(Request $r){
+        $registro=new Presta();
+        $registro->nombre=$r->concepto;
+        $registro->periodo=$r->periodo;
+        $registro->tipo=$r->tipp;
+        $registro->monto=$r->monto;
+        $registro->cliente_id=$r->Num;
+        $registro->save();
+
+        return back();
+//        return $r;
+    }
+    function prestados(Request $r){
+        $idcli=Cliente::all()->where("nom","=",$r->Name)->where("apeP","=",$r->apat)->where("apeM","=",$r->amat);
+
+        $registro=new Presta();
+        $registro->nombre=$r->concepto;
+        $registro->periodo=$r->periodo;
+        $registro->tipo=$r->tipp;
+        $registro->monto=$r->monto;
+        $registro->cliente_id=$idcli[0]->id;
+        $registro->save();
+        return back();
     }
 }
