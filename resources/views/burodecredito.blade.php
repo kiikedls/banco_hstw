@@ -1,11 +1,24 @@
 @extends('layouts.interface')
 @section('CSS')
 <link rel="stylesheet" href="css/burodecredito.css">
+
+<style type="text/css">
+  .btndoom{
+    padding: 1px !important;
+    background-color:rgba(255,0,0,0.0) !important;
+    width: 11%;
+  }
+  .icoposition{
+    padding: -40px !important;
+  }
+  .btncenter{
+    margin-left: 45% !important;
+  }
+</style>
 @endsection
 
 @section('content')
 <div class="container-fluid rounded-lg">
-
   <div class="card container-fluid">
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
       <thead  id='pachon'>
@@ -21,6 +34,9 @@
         </tr>
       </thead>
       <tbody>  
+
+        <form action="regpdf" method="post" accept-charset="utf-8">
+        @csrf
             @if($notienen != null && $tienen != null)
               @foreach($notienen as $reg)
                   <tr>
@@ -42,10 +58,12 @@
                         <i class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos' ></i>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 2)
-                        <i class="fas fa-exclamation-circle fa-lg text-warning" onclick='generar_reporte({{$reg->id}})' data-toggle="popover-hover" data-content='Pagando'></i>
+
+                        @csrf
+                        <button name='btniduser' value='{{$reg->id}}' class="btncenter btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-circle fa-lg text-warning" data-toggle="popover-hover" data-content='Pagando'></i></button>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 3)
-                      <i class="fas fa-exclamation-triangle fa-lg text-danger" onclick='generar_reporte({{$reg->id}})' data-toggle="popover-hover" data-content='En Buro'></i>
+                        <button name='btniduser' value='{{$reg->id}}' class="btncenter btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-triangle fa-lg text-danger" data-toggle="popover-hover" data-content='En Buro'></i></button>
                       @endif
                     </td>
                   </tr>
@@ -62,10 +80,10 @@
                         <i id="btninfo" class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos' ></i>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 2)
-                        <i class="fas fa-exclamation-circle fa-lg text-warning reporte" data-toggle="popover-hover" data-content='Pagando' onclick='generar_reporte({{$reg->id}})'></i>
+                        <button name='btniduser' value='{{$reg->id}}' class="btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-circle fa-lg text-warning" data-toggle="popover-hover" data-content='Pagando'></i></button>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 3)
-                      <i class="fas fa-exclamation-triangle fa-lg text-danger reporte" data-toggle="popover-hover" data-content='En Buro' onclick='generar_reporte({{$reg->id}})'></i>
+                        <button name='btniduser' value='{{$reg->id}}' class="btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-triangle fa-lg text-danger" data-toggle="popover-hover" data-content='En Buro'></i></button>
                       @endif
                     </td>
                   </tr>
@@ -79,11 +97,11 @@
                     <td class="text-center"> {{$reg->f_nac}} </td>
                     <td class="text-center">
                       <i id="btninfo" class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos'></i>
-
                     </td>
                   </tr>
               @endforeach
             @endif
+          </form> 
       </tbody>
     </table>
   </div>
@@ -102,13 +120,6 @@
       content: function () { return '<img src="' + $(this).data('img') + '" />'; }
     });
   });
-</script>
-
-<script>
-  function generar_reporte(words)
-  {
-    alert(words);
-  }
 </script>
 
 @endsection
