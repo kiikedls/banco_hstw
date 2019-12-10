@@ -16,10 +16,6 @@ class Cliente extends Model
         'RFC'
     ];
 
-    function buro() {
-        return $this->hasOne(Buro::class);
-    }
-
     function creditos() {
         return $this->hasMany(Credito::class, 'cliente_id');
     }
@@ -44,4 +40,10 @@ class Cliente extends Model
         return $this->pagos()->whereRaw('fecha < NOW()')
             ->where('fecha_pago', null);
     }
+
+    function buro()
+    {
+        return $this->belongsToMany(Buro::class, 'registros_buro', 'clientes', 'buro');
+    }
+
 }

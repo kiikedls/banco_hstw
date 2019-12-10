@@ -16,4 +16,9 @@ class Buro extends Model
 	];
 	public $timestamps = false;
 
+	function Cliente()
+    {
+        return $this->belongsToMany(Cliente::class, 'registros_buro', 'buro', 'clientes');
+    }
+
 }
