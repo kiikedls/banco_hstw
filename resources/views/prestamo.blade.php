@@ -71,39 +71,66 @@ Aquí linkearás el CSS generado por SASS
             <!-- Form -->
 
             <!-- Form -->
-            <form class="text-center col" style="color: #757575;" action="!#" method="post">
+            <form class="text-center col" style="color: #757575;" action="/presta2" method="post">
                 @csrf
 
-                <!-- Name -->
-                <div class="md-form mt-3">
-                    <input type="text" name="Name" id="Name" class="form-control">
-                    <label for="Name">Nombre completo</label>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <!-- Name -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="Name" id="Name" class="form-control" required>
+                            <label for="Name">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- APaterno -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="apat" id="apat" class="form-control" required>
+                            <label for="apat">Apellido Paterno</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- AMaterno -->
+                        <div class="md-form mt-3">
+                            <input type="text" name="amat" id="amat" class="form-control" required>
+                            <label for="amat">Apellido Materno</label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- fecha de nacimiento -->
-                fecha de nacimiento: <input id="datepicker" type="date">
+{{--                fecha de nacimiento: <input id="datepicker" type="date">--}}
+                <div class="md-form mb-5">
+                    <input type="date" id="inputDate15" name="f_nac" class="form-control" placeholder="Select Date" required>
+                    <label data-error="" data-success="" for="inputDate15">Fecha de Nacimiento</label>
+                </div>
+                <!-- concepto -->
+                <div class="md-form">
+                    <input type="text" name="concepto" id="concepto" class="form-control" required>
+                    <label for="concepto">concepto</label>
+                </div>
+                <!-- periodo -->
+                <div class="md-form">
+                    <input type="text" name="periodo" id="periodo" class="form-control" required>
+                    <label for="periodo">periodo</label>
+                </div>
+                <!-- Subject -->
+                <select name="tipp" class="browser-default custom-select" required>
+                    <option selected>Tipo prestamo</option>
+                    <option value="quincenal">Quincenal</option>
+                    <option value="mensual">Mensual</option>
+                </select>
+                <!-- Monto -->
+                <div class="md-form">
+                    <input type="text" name="monto" id="monto" class="form-control" required>
+                    <label for="monto">monto</label>
+                </div>
 
                 <!-- Send button -->
                 <button id="verifica2" type="button" class="btn btn-outline-success btn-md btn-block waves-effect">verificar vuro</button>
                 <button id="send2" class="btn blue-gradient btn-block z-depth-0 my-4 waves-effect" type="submit">Asignar</button>
 
             </form>
-            <!-- Form -->
-        {{--</div>
-        <div id="element" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded mr-2" alt="...">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small>11 mins ago</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-        </div>--}}
-{{--        <div id="notificacion" class="col-md-3"></div>--}}
 
     </div>
         <div id="notificacion" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -142,18 +169,27 @@ Tu código aquí no afectará el trabajo de los demás
                         console.log(response);
                     },
                     success:function (response) {
-                        // alert(response.msj);
-                        // var mss;
-                        // if (response.reg) {
-                        //     // $("#notificacion").html(response.msj);
-                        //     mss='<div class="alert alert-warning alert-dismissible fade show" role="alert">'+response.msj+
-                        //     '<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>';
-                        // }
-                        // else {
-                        //     mss="<div class='alert alert-success' role='alert'>"
-                        //         +response.msj+"</div>"
-                        // }
-                        // $("#notificacion").html(response.msj);
+                        $("#notificacion").append(response.msj);
+                        // console.log(response);
+                    }
+                });
+            });
+            //boton de verificar buro2
+            $("#verifica2").click(function () {
+                var cli=$("#Name").val();
+                var _token='{{csrf_token()}}';
+                // div_msj.empty();
+                $("#notificacion").empty();
+
+                $.ajax({
+                    url:'/verburo2',
+                    data:{cli,_token},
+                    type:'POST',
+                    dataType:'json',
+                    error:function (response) {
+                        console.log(response);
+                    },
+                    success:function (response) {
                         $("#notificacion").append(response.msj);
                         // console.log(response);
                     }
