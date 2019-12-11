@@ -30,11 +30,9 @@ class BuroController extends Controller
     public function vistapdf(Request $request){
         $fecha = carbon::now();
 		$numero = $request->get('btniduser');
+        $usuarios = Cliente::whereHas('buro')->where("id","=",$numero)->with('buro')->get()->first();
 
-		dd($numero);
-
-		//return view('reportepdf')->with('fecha', $fecha)->with('numero', $numero);
-
+		return view('reportepdf')->with('fecha', $fecha)->with('usuario', $usuarios);
     }
 
 

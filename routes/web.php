@@ -33,7 +33,7 @@ Route::get('/reporte', function (){
 Route::post('/buscar','UserController@buscar');
 
 Route::get('/burodecredito','BuroController@viewBuro');
-Route::post('/regpdf','BuroController@vistapdf');
+Route::post('/registrospdf','BuroController@vistapdf');
 Route::post('/regdownload','BuroController@download');
 
 route::get('/tarjetas','CTarjeta@vista');

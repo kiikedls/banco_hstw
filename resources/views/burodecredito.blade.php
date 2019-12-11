@@ -34,9 +34,6 @@
         </tr>
       </thead>
       <tbody>  
-
-        <form action="regpdf" method="post" accept-charset="utf-8">
-        @csrf
             @if($notienen != null && $tienen != null)
               @foreach($notienen as $reg)
                   <tr>
@@ -57,14 +54,17 @@
                       @if($reg->buro[0]->calificacion_cliente == 1)
                         <i class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos' ></i>
                       @endif
-                      @if($reg->buro[0]->calificacion_cliente == 2)
+          <form action="/registrospdf" method="post">
+          @csrf
 
-                        @csrf
+                      @if($reg->buro[0]->calificacion_cliente == 2)
                         <button name='btniduser' value='{{$reg->id}}' class="btncenter btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-circle fa-lg text-warning" data-toggle="popover-hover" data-content='Pagando'></i></button>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 3)
                         <button name='btniduser' value='{{$reg->id}}' class="btncenter btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-triangle fa-lg text-danger" data-toggle="popover-hover" data-content='En Buro'></i></button>
                       @endif
+
+          </form>
                     </td>
                   </tr>
               @endforeach
@@ -79,12 +79,15 @@
                       @if($reg->buro[0]->calificacion_cliente == 1)
                         <i id="btninfo" class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover" data-content='Libre de Adeudos' ></i>
                       @endif
+          <form action="/registrospdf" method="post">
+          @csrf
                       @if($reg->buro[0]->calificacion_cliente == 2)
                         <button name='btniduser' value='{{$reg->id}}' class="btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-circle fa-lg text-warning" data-toggle="popover-hover" data-content='Pagando'></i></button>
                       @endif
                       @if($reg->buro[0]->calificacion_cliente == 3)
                         <button name='btniduser' value='{{$reg->id}}' class="btn btn-info btn-block btndoom" type="submit"><i class="icoposition fas fa-exclamation-triangle fa-lg text-danger" data-toggle="popover-hover" data-content='En Buro'></i></button>
                       @endif
+                      </form>
                     </td>
                   </tr>
               @endforeach
@@ -101,7 +104,7 @@
                   </tr>
               @endforeach
             @endif
-          </form> 
+        </form> 
       </tbody>
     </table>
   </div>

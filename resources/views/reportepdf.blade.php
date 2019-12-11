@@ -11,17 +11,45 @@
     @yield('main-CSS')
 </head>
 <body>
+<form  method="POST"  action="/download">
+    @csrf
+    <div class="container">
+        <div class="row justify-content-end">
 
-    <form  method="POST"  action="/download">
-        @csrf
-        <input type="text" name="numero"  value="{{$numero}}" hidden>
-        <input type="text" name="fecha" value="{{$fecha}}" hidden>
-        <div class="text-center">
-            <button type="submit" class="btn blue-gradient">Descargar</button>
+            <div class="col-sm col">
+            </div>
+
+            <div class="col c z-depth-7 ">
+                    <div class="titulo">
+                        <div class="icono"></div>
+                    </div>
+                <div class="top">
+                    <h6 class="title">Informacion</h6>
+                </div>
+                    <div class="form-group u md-form" >
+                        <i class="fas fa-user prefix">sdfsdfsdfsd</i>
+                        <input type="text" name="User" id="form1" class="form-control">
+                        <label for="form1" class="white-text">Usuario</label>
+                    </div>
+
+
+                    <div class="form-group k md-form">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="password" name="Pass" id="fomr2" class="form-control">
+                        <label for="fomr2" class="white-text">Contraseña</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-indigo boton col-6">Ingresar</button>                
+            </div>
+
+            <div class="col-sm col">
+            </div>
         </div>
-    </form>
-</body>
+    </div>
+</form>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/mdb.min.js"></script>
+
+</body>
 </html>
