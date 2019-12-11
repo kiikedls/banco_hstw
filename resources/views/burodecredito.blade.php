@@ -88,9 +88,7 @@
                             <td class="text-center">
                                 <div class="col offset-5"></div>
                                 <div class="col">
-                                    <button value="{{$reg->id}}" class="btn btn-primary btn-report font-weight-bold"
-                                            data-toggle="modal" data-target="#exampleModalReporte">reporte
-                                    </button>
+
                                 </div>
                             </td>
                         </tr>
@@ -126,67 +124,12 @@
                         </tr>
                     @endforeach
                 @endif
-                {{--                @if($notienen == null && $tienen != null )--}}
-                {{--                    @foreach($tienen as $reg)--}}
-                {{--                        <tr>--}}
-                {{--                            <input type="hidden" value="{{$reg->id}}" class="id">--}}
-                {{--                            <td class="text-center"> {{$reg->id}} </td>--}}
-                {{--                            <td class="text-center"> {{$reg->nom.' '.$reg->apeP.' '.$reg->apeM}} </td>--}}
-                {{--                            <td class="text-center"> {{$reg->f_nac}} </td>--}}
-                {{--                            <td class="text-center">--}}
-                {{--                                @if($reg->buro[0]->calificacion_cliente == 1)--}}
-                {{--                                    <i id="btninfo" class="fas fa-smile-beam fa-lg text-success"--}}
-                {{--                                       data-toggle="popover-hover" data-content='Libre de Adeudos'></i>--}}
-                {{--                                @endif--}}
-                {{--                                <form action="/registrospdf" method="post">--}}
-                {{--                                    @csrf--}}
-                {{--                                    @if($reg->buro[0]->calificacion_cliente == 2)--}}
-                {{--                                        <button name='btniduser' value='{{$reg->id}}'--}}
-                {{--                                                class="btn btn-info btn-block btndoom" type="submit"><i--}}
-                {{--                                                    class="icoposition fas fa-exclamation-circle fa-lg text-warning"--}}
-                {{--                                                    data-toggle="popover-hover" data-content='Pagando'></i></button>--}}
-                {{--                                    @endif--}}
-                {{--                                    @if($reg->buro[0]->calificacion_cliente == 3)--}}
-                {{--                                        <button name='btniduser' value='{{$reg->id}}'--}}
-                {{--                                                class="btn btn-info btn-block btndoom" type="submit"><i--}}
-                {{--                                                    class="icoposition fas fa-exclamation-triangle fa-lg text-danger"--}}
-                {{--                                                    data-toggle="popover-hover" data-content='En Buro'></i></button>--}}
-                {{--                                    @endif--}}
-                {{--                                </form>--}}
-                {{--                            </td>--}}
-                {{--                            <td class="text-center">--}}
-                {{--                                <div class="col offset-5"></div>--}}
-                {{--                                <div class="col">--}}
-                {{--                                    <button value="{{$reg->id}}"  class="btn btn-primary btn-report font-weight-bold" data-toggle="modal" data-target="#exampleModalReporte" >reporte</button>--}}
-                {{--                                </div>--}}
-                {{--                            </td>--}}
-                {{--                        </tr>--}}
-                {{--                    @endforeach--}}
-                {{--                @endif--}}
-                {{--                @if($notienen != null && $tienen == null )--}}
-                {{--                    @foreach($notienen as $reg)--}}
-                {{--                        <tr>--}}
-                {{--                            <input type="hidden" value="{{$reg->id}}" class="id">--}}
-                {{--                            <td class="text-center"> {{$reg->id}} </td>--}}
-                {{--                            <td class="text-center"> {{$reg->nom.' '.$reg->apeP.' '.$reg->apeM}} </td>--}}
-                {{--                            <td class="text-center"> {{$reg->f_nac}} </td>--}}
-                {{--                            <td class="text-center">--}}
-                {{--                                <i id="btninfo" class="fas fa-smile-beam fa-lg text-success" data-toggle="popover-hover"--}}
-                {{--                                   data-content='Libre de Adeudos'></i>--}}
-                {{--                            </td>--}}
-                {{--                            <td class="text-center">--}}
-                {{--                                <div class="col offset-5"></div>--}}
-                {{--                                <div class="col">--}}
-                {{--                                    <button value="{{$reg->id}}"  class="btn btn-primary btn-report font-weight-bold" data-toggle="modal" data-target="#exampleModalReporte" >reporte</button>--}}
-                {{--                                </div>--}}
-                {{--                            </td>--}}
-                {{--                        </tr>--}}
-                {{--                    @endforeach--}}
-                {{--                @endif--}}
+
                 </tbody>
             </table>
         </div>
     </div>
+
 @endsection
 @section('JS')
     <script>
@@ -221,9 +164,9 @@
                         },
                         success:function(response) {
                             alert(response);
-                            var pdf = window.open("");
+                             var pdf = window.open("");
                             pdf.document.write("<iframe width='100%' height='100%'" +
-                                " src='data:application/pdf;base64, " + encodeURI(response) + "'></iframe>");
+                                " src='data:application/pdf;base64,"+encodeURI(response)+"'></iframe>");
                             location.href = '/burodecredito';
                         }, error:function(){ alert("error") },
                     });

@@ -9,6 +9,7 @@ use App\Models\Tarjeta as tarjeta;
 use App\Models\Prestamo as prestamo;
 use App\Models\Credito as credito;
 use App\Models\Pago as pago;
+use App\Models\Buro as buro;
 use Dompdf\Dompdf;
 use Barryvdh\DomPDF\PDF as PDF;
 
@@ -125,6 +126,7 @@ class gestion extends Controller
             $pres->delete();
         }
         $cliente->direcciones()->detach();
+        $cliente->buro()->detach();
         $cliente->save();
         $direccion->save();
         $direccion->delete();

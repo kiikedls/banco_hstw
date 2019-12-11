@@ -11,7 +11,6 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection as Collection;
 use Dompdf\Dompdf;
-//use Barryvdh\DomPDF\PDF as PDF;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon as carbon;
 
@@ -40,29 +39,32 @@ class BuroController extends Controller
     }
 
 
-    public function download(Request $request)
-    {
-        $numero = $request->input('numero');
-        $interes = $request->input('interes');
-        $fecha = $request->input('fecha');
-        $camortizada = $request->input('camortizada');
-        $capital = $request->input('capital');
-        $cuota = $request->input('cuota');
-        $html = view('viewpdf')->with('numero', $numero)->with('fecha', $fecha)->with('interes', $interes)->with('capital', $capital)->with('cuota', $cuota)->with('camortizada', $camortizada);
-        $pdf = new Dompdf();
-        $pdf->loadHtml($html);
-        $pdf->render();
-        return $pdf->stream();
-    }
+//    public function download(Request $request)
+//    {
+//        $numero = $request->input('numero');
+//        $interes = $request->input('interes');
+//        $fecha = $request->input('fecha');
+//        $camortizada = $request->input('camortizada');
+//        $capital = $request->input('capital');
+//        $cuota = $request->input('cuota');
+//        $html = view('viewpdf')->with('numero', $numero)->with('fecha', $fecha)->with('interes', $interes)->with('capital', $capital)->with('cuota', $cuota)->with('camortizada', $camortizada);
+//        $pdf = new Dompdf();
+//        $pdf->loadHtml($html);
+//        $pdf->render();
+//        return $pdf->stream();
+//    }
 
-    public function pdf(Request $request)
+    public function pdff(Request $request)
     {
+        $pef = new Dompdf();
+
         $personas = Cliente::whereHas('direcciones')->with('direcciones')->whereHas('buro')->with('buro')->where('id', '=', $request->id)->get();
-        $invoice = "2222";
         $mensaje = $request->mensaje;
         $data = ['personas' => $personas, 'mensaje' => $mensaje];
-        $pdf = PDF::loadView('PDF', $data);
-        return base64_encode($pdf->stream('invoice.pdf'));
+        $html = view('PDF', compact('personas','mensaje'));
+        $pef->loadHtml($html);
+        $pef->render();
+        return base64_encode($pef->stream('Reporte.pdf'));
     }
 
 
