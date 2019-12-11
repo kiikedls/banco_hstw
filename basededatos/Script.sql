@@ -164,6 +164,11 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `registros_buro` (
+  `clientes` int(11) NOT NULL,
+  `buro` int(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- La exportación de datos fue deseleccionada.
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
