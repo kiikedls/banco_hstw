@@ -35,6 +35,12 @@ Route::post('/buscar','UserController@buscar');
 Route::get('/burodecredito','BuroController@viewBuro');
 Route::post('/registrospdf','BuroController@vistapdf');
 Route::post('/regdownload','BuroController@download');
+Route::post('/ppdf','BuroController@pdf');
+Route::post('/ppdf','BuroController@pdf');
+Route::get('/ass',function (){
+    return view('PDF');
+});
+
 
 route::get('/tarjetas','CTarjeta@vista');
 route::post('/infotarjeta1','CTarjeta@asigna1');
