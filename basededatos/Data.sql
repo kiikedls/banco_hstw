@@ -53,7 +53,7 @@ insert into buro values (3,'2017-01-10','BANAMEX',2,'Pago debil');
 insert into buro values (4,'2019-05-20','SCOTIABANK',3,'pago adecuado');
 insert into buro values (5,'2018-06-12','BANCOMER',3,'pago satisfactorio');
 -- registros_buro
-insert into registros_buro values (4,1);
+insert into registros_buro values (4,3);
 insert into registros_buro values (5,2);
 --  usuarios
 insert into usuarios values (1,'admin','admin');
