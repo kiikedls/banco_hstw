@@ -56,15 +56,12 @@ class BuroController extends Controller
 
     public function pdff(Request $request)
     {
-        $pef = new Dompdf();
 
         $personas = Cliente::whereHas('direcciones')->with('direcciones')->whereHas('buro')->with('buro')->where('id', '=', $request->id)->get();
         $mensaje = $request->mensaje;
         $data = ['personas' => $personas, 'mensaje' => $mensaje];
-        $html = view('PDF', compact('personas','mensaje'));
-        $pef->loadHtml($html);
-        $pef->render();
-        return base64_encode($pef->stream('Reporte.pdf'));
+        $pdf = PDF::loadView('pdf.pdf', $data);
+        return base64_encode($pdf->stream('reporte.pdf'));
     }
 
 

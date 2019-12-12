@@ -22,7 +22,7 @@
 <main>
 
 
-    <table border="1" cellspacing="0" cellpadding="0" class="table table-bordered">
+    <table border="1" cellspacing="0" cellpadding="0" class="table table-bordered" >
 
         <thead>
         <thead class="thead-dark">
