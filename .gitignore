@@ -11,3 +11,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /app/Http/Controllers/TestController.php
+storage/fonts/dc694162e450cf28f2ae302cd01fb2a5.ttf
+storage/fonts/dc694162e450cf28f2ae302cd01fb2a5.ufm
+storage/fonts/dc694162e450cf28f2ae302cd01fb2a5.ufm.php
+storage/fonts/dompdf_font_family_cache.php

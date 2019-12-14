@@ -47,11 +47,11 @@ insert into creditos values (3,'SCOTIABANK','regf15246','inactivo','rojo',3,1);
 insert into creditos values (4,'BANAMEX','rewe12365','activo','verde',4,1);
 insert into creditos values (5,'BANCOAZTECA','lgde92384','inactivo','amarillo',5,2);
 --  Buro
-insert into buro values (1,'2019-12-12','HSBC',1,'pago adecuado');
-insert into buro values (2,'2018-11-22','BANCOMER',3,'pago insatisfactorio');
-insert into buro values (3,'2017-01-10','BANAMEX',2,'Pago debil');
-insert into buro values (4,'2019-05-20','SCOTIABANK',3,'pago adecuado');
-insert into buro values (5,'2018-06-12','BANCOMER',3,'pago satisfactorio');
+insert into buro values (1,'2019-12-12','HSBC',1,'pago adecuado','pfe98676');
+insert into buro values (2,'2018-11-22','BANCOMER',3,'pago insatisfactorio','scj98676');
+insert into buro values (3,'2017-01-10','BANAMEX',2,'Pago debil','lgc98676');
+insert into buro values (4,'2019-05-20','SCOTIABANK',3,'pago adecuado','GDA98676');
+insert into buro values (5,'2018-06-12','BANCOMER',3,'pago satisfactorio','RJS98676');
 -- registros_buro
 insert into registros_buro values (4,3);
 insert into registros_buro values (5,2);

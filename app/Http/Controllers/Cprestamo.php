@@ -12,7 +12,7 @@ class Cprestamo extends Controller
     function verifica_buro(Request $r){
 //        $id=Cliente::all()->where('id','=',$r->idcli);
         $id=Cliente::all()->where('id','=',$r->idcli);
-        $estatus=Buro::all()->where('info_adeudor','=',$id[0]->RFC);
+        $estatus=Buro::all()->where('identificador','=',$id[0]->RFC);
 //        return $estatus[0]->calificacion_cliente;
         if ($estatus[0]->calificacion_cliente!=3){
             return collect(['msj'=>"prestamo aceptado"]);
@@ -25,7 +25,7 @@ class Cprestamo extends Controller
     function verifica_buro2(Request $r){
         $id=Cliente::all()->where('nom','=',$r->cli);
 //        $id=Cliente::all()->where('id','=',$r->idcli);
-        $estatus=Buro::all()->where('info_adeudor','=',$id[1]->RFC);
+        $estatus=Buro::all()->where('identificador','=',$id[1]->RFC);
 //        return $estatus[0]->calificacion_cliente;
         if ($estatus[1]->calificacion_cliente!=3){
             return collect(['msj'=>"prestamo aceptado"]);

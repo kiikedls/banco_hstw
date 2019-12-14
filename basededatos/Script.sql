@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS `buro` (
   `compania` varchar(100) NOT NULL,
   `calificacion_cliente` int(11) NOT NULL,
   `info_adeudor` varchar(20) NOT NULL,
+  `iDENTIFICADOR` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

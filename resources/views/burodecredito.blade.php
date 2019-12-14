@@ -163,11 +163,11 @@
                             _token: token
                         },
                         success:function(response) {
-                            alert(response);
+
                              var pdf = window.open("");
                             pdf.document.write("<iframe width='100%' height='100%'" +
                                 " src='data:application/pdf;base64,"+encodeURI(response)+"'></iframe>");
-                            // location.href = '/burodecredito';
+                             location.href = '/burodecredito';
                         }, error:function(){ alert("error") },
                     });
                 })
